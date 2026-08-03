@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { PhoneCall, ShieldCheck, UserCheck, MapPin } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 
@@ -32,94 +31,66 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
       id="home"
       className="relative pt-44 sm:pt-48 pb-20 bg-white text-gray-800 flex items-center overflow-hidden border-b border-gray-100"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+        
+        {/* Full-width Hero Text Container */}
+        <div className="flex flex-col items-center space-y-6 text-center" id="hero-text-container">
           
-          {/* Hero Left: Artistic Banner Graphic */}
-          <div className="lg:col-span-6 relative flex flex-col items-center justify-center order-2 lg:order-1 mt-10 lg:mt-0" id="hero-collage-container">
-            
-            {/* Central Circle Frame with Flores scenery */}
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto" id="collage-graphic">
-              <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-white shadow-2xl bg-gray-100 relative z-10">
-                <img
-                  src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600"
-                  alt="Pesona Wisata Pulau Flores NTT"
-                  className="w-full h-full object-cover select-none"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* Location Badge */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-6 right-[-10px] bg-white shadow-xl px-3.5 py-2 rounded-full flex items-center gap-1.5 text-xs font-bold text-[#2563eb] z-30 border border-blue-100"
-              >
-                <MapPin className="w-4 h-4 text-red-500" />
-                <span>Ende, Flores - NTT</span>
-              </motion.div>
-            </div>
-
+          {/* Small uppercase tag with location badge */}
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#2563eb] border border-blue-100 px-4 py-1.5 rounded-full font-display font-extrabold text-xs tracking-widest uppercase">
+            <MapPin className="w-3.5 h-3.5 text-red-500" />
+            <span>CICI RENTCAR ENDE – FLORES NTT</span>
           </div>
 
-          {/* Hero Right: Headline & CTA */}
-          <div className="lg:col-span-6 flex flex-col space-y-6 order-1 lg:order-2 text-left" id="hero-text-container">
-            
-            {/* Small uppercase tag */}
-            <span className="font-display font-extrabold text-xs text-[#2563eb] tracking-widest uppercase">
-              CICI RENTCAR ENDE – FLORES NTT
-            </span>
+          {/* Large Bold Headline */}
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-gray-900 tracking-tight leading-tight uppercase max-w-4xl">
+            Sewa & Rental Mobil Terpercaya di Ende, Flores – NTT
+          </h1>
 
-            {/* Large Bold Headline */}
-            <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-gray-900 tracking-tight leading-tight uppercase">
-              Sewa & Rental Mobil Terpercaya di Ende, Flores – NTT
-            </h1>
+          {/* Sub-headline Highlight */}
+          <p className="font-semibold text-gray-800 text-base sm:text-xl max-w-2xl bg-slate-50 py-2.5 px-6 rounded-2xl border border-slate-100">
+            Melayani Rental Dalam & Luar Kota Flores dan sekitarnya
+          </p>
 
-            {/* Sub-headline & Description */}
-            <div className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed space-y-4">
-              <p className="font-semibold text-gray-800 text-base sm:text-lg border-l-4 border-[#2563eb] pl-3">
-                Melayani Rental Dalam & Luar Kota Flores dan sekitarnya
-              </p>
-              <p className="text-gray-500">
-                Kami siap memberikan pelayanan sepenuh hati untuk perjalanan dinas, wisata Danau Kelimutu, hingga Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo) dengan armada bersih, nyaman, dan pengemudi berpengalaman.
-              </p>
+          {/* Description */}
+          <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed max-w-3xl">
+            Kami siap memberikan pelayanan sepenuh hati untuk perjalanan dinas, wisata Danau Kelimutu, hingga Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo) dengan armada bersih, nyaman, dan pengemudi berpengalaman.
+          </p>
+
+          {/* Feature Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-6 py-3 text-gray-700 text-xs sm:text-sm font-bold">
+            <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
+              <ShieldCheck className="w-5 h-5 text-[#2563eb]" />
+              <span>Armada Selalu Prima & Terawat</span>
             </div>
-
-            {/* Specs sticker badge */}
-            <div className="flex flex-wrap gap-4 py-3 border-t border-b border-gray-100 text-gray-600 text-xs">
-              <div className="flex items-center gap-1.5 font-semibold">
-                <ShieldCheck className="w-4.5 h-4.5 text-[#2563eb]" />
-                <span>Armada Selalu Prima & Terawat</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-semibold">
-                <UserCheck className="w-4.5 h-4.5 text-[#2563eb]" />
-                <span>Driver Lokal Paham Rute Flores</span>
-              </div>
+            <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
+              <UserCheck className="w-5 h-5 text-[#2563eb]" />
+              <span>Driver Lokal Paham Rute Flores</span>
             </div>
+          </div>
 
-            {/* CTA Actions */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-              <button
-                onClick={handleWhatsAppClick}
-                className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-bold text-xs uppercase py-4 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
-                id="hero-cta-whatsapp"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>Pesan Mobil via WhatsApp (081236024604)</span>
-              </button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
+            <button
+              onClick={handleWhatsAppClick}
+              className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-extrabold text-xs sm:text-sm uppercase py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              id="hero-cta-whatsapp"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>Pesan Mobil via WhatsApp (081236024604)</span>
+            </button>
 
-              <button
-                onClick={handleViewPrices}
-                className="bg-[#2563eb] hover:bg-blue-700 text-white font-display font-bold text-xs uppercase py-4 px-6 rounded-xl shadow-md transition-all cursor-pointer text-center"
-                id="hero-cta-prices"
-              >
-                Lihat Daftar Harga
-              </button>
-            </div>
-
+            <button
+              onClick={handleViewPrices}
+              className="w-full sm:w-auto bg-[#2563eb] hover:bg-blue-700 text-white font-display font-extrabold text-xs sm:text-sm uppercase py-4 px-8 rounded-2xl shadow-lg transition-all cursor-pointer text-center"
+              id="hero-cta-prices"
+            >
+              Lihat Daftar Harga
+            </button>
           </div>
 
         </div>
+
       </div>
     </section>
   );
