@@ -38,28 +38,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
           {/* Hero Left: Artistic Banner Graphic */}
           <div className="lg:col-span-6 relative flex flex-col items-center justify-center order-2 lg:order-1 mt-10 lg:mt-0" id="hero-collage-container">
             
-            {/* Script Tagline */}
-            <motion.h3 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              style={{ fontFamily: 'var(--font-script)' }}
-              className="text-[#2563eb] text-4xl sm:text-5xl lg:text-6xl text-center font-normal leading-none mb-1 select-none"
-            >
-              Cici Rentcar Ende
-            </motion.h3>
-
-            {/* Direct quote tagline */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="font-sans text-xs sm:text-sm text-amber-600 font-medium italic max-w-md text-center leading-relaxed mb-6 px-4"
-            >
-              "Solusi Perjalanan Aman & Nyaman Menjelajahi Keindahan Pulau Flores"
-            </motion.p>
-
-            {/* Central Circle Frame with Flores vehicle & scenery */}
+            {/* Central Circle Frame with Flores scenery */}
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto" id="collage-graphic">
               <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-white shadow-2xl bg-gray-100 relative z-10">
                 <img
@@ -70,20 +49,11 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Overlapping Driver / Vehicle Overlay */}
-              <div className="absolute bottom-[-16px] left-[-20px] right-[-20px] z-20 flex justify-center">
-                <img
-                  src="/innova3.avif"
-                  alt="Armada Cici Rentcar Ende"
-                  className="w-[90%] sm:w-[95%] h-auto object-contain select-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.3)] rounded-2xl"
-                />
-              </div>
-
               {/* Location Badge */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-6 right-[-10px] bg-white shadow-xl px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-bold text-[#2563eb] z-30 border border-blue-100"
+                className="absolute top-6 right-[-10px] bg-white shadow-xl px-3.5 py-2 rounded-full flex items-center gap-1.5 text-xs font-bold text-[#2563eb] z-30 border border-blue-100"
               >
                 <MapPin className="w-4 h-4 text-red-500" />
                 <span>Ende, Flores - NTT</span>
