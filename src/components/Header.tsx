@@ -34,7 +34,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
 
   const navItems = [
     { label: t.nav_home, id: 'home', type: 'page', pageId: 'home' },
-    { label: lang === 'EN' ? 'Tours & Routes' : 'Rute & Trip', id: 'tours', type: 'page', pageId: 'tours' },
+    { label: lang === 'EN' ? 'Tours & Routes' : 'Rute & Trip', id: 'tours', type: 'section', sectionId: 'tours' },
     { label: lang === 'EN' ? 'Fleet & Rates' : 'Daftar Armada', id: 'rentals', type: 'page', pageId: 'rentals' },
     { label: t.nav_about, id: 'about', type: 'section', sectionId: 'about' },
     { label: lang === 'EN' ? 'Reviews' : 'Ulasan', id: 'testimonials', type: 'section', sectionId: 'testimonials' },

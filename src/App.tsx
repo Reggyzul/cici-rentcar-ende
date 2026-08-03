@@ -67,20 +67,29 @@ export default function App() {
       setCurrentPage('home');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('home');
-    } else if (sectionId === 'tours') {
-      setCurrentPage('tours');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setActiveSection('tours');
     } else if (sectionId === 'rentals') {
       setCurrentPage('rentals');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('rentals');
+    } else if (sectionId === 'tours') {
+      setCurrentPage('home');
+      setTimeout(() => {
+        const el = document.getElementById('tours');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      setActiveSection('tours');
     } else {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(sectionId);
+      if (currentPage !== 'home') {
+        setCurrentPage('home');
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
       }
+      setActiveSection(sectionId);
     }
   };
 
@@ -134,20 +143,15 @@ export default function App() {
             {/* 3. Section: Layanan Utama */}
             <Services lang={lang} />
 
-            {/* 4. Section: Cara Pemesanan Mudah */}
+            {/* 4. Section: Rute & Paket Perjalanan (1 Box Bingkai Rapih Simpel Berkelas) */}
+            <ToursList lang={lang} />
+
+            {/* 5. Section: Cara Pemesanan Mudah */}
             <BookingSteps lang={lang} />
 
-            {/* 5. Testimonials */}
+            {/* 6. Testimonials */}
             <Testimonials lang={lang} />
           </>
-        ) : currentPage === 'tours' ? (
-          <div className="pt-44 sm:pt-48">
-            {/* Tours View */}
-            <ToursList lang={lang} />
-            
-            {/* Testimonials */}
-            <Testimonials lang={lang} />
-          </div>
         ) : (
           <div className="pt-44 sm:pt-48">
             {/* Rentals View */}

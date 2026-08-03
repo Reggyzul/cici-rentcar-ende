@@ -1,150 +1,226 @@
-import React from 'react';
-import { Clock, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Compass, Clock, MapPin, CheckCircle2, ChevronRight, PhoneCall, Sparkles } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface ToursListProps {
   lang: 'ID' | 'EN';
 }
 
 export default function ToursList({ lang }: ToursListProps) {
+  const [activeRouteIndex, setActiveRouteIndex] = useState(0);
   const t = TRANSLATIONS[lang];
 
-  const tourPackages = [
+  const routes = [
     {
-      id: 'tour-[#lintas-flores]',
-      title: 'Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo)',
-      duration: lang === 'EN' ? 'Custom Days (4D3N / 5D4N / 6D5N)' : 'Pilihan Paket Flexi (4H3M / 5H4M / 6H5M)',
-      location: 'Pulau Flores (Ende ke Labuan Bajo)',
-      price: 'Hubungi CS (081236024604)',
-      description: lang === 'EN' 
-        ? 'Unforgettable overland journey exploring key destinations across Flores Island: Ende, Kelimutu, Maumere, Bajawa, Ruteng, to Labuan Bajo.'
-        : 'Perjalanan spesial menjelajahi Pulau Flores dari Ende, Kelimutu, Maumere, Bajawa, Ruteng hingga titik akhir di Labuan Bajo secara aman dan nyaman.',
-      image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600',
-      waMessage: 'Halo Cici Rentcar Ende, saya tertarik untuk memesan paket Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo). Mohon info rincian harganya.'
+      id: 'lintas-flores',
+      name: 'Trip Lintas Flores',
+      badge: 'POPULER & FAVORIT',
+      subtitle: 'Ende - Maumere - Bajawa - Ruteng - Labuan Bajo',
+      duration: 'Fleksibel (4H3M / 5H4M / 6H5M)',
+      destinations: ['Danau 3 Warna Kelimutu', 'Kampung Adat Bena', 'Ruteng Pu\'u', 'Labuan Bajo', 'Pantai Batu Hijau'],
+      features: ['Mobil Bersih & AC Cold', 'Driver Lokal Paham Rute', 'BBM & Tol Termasuk (Optional)', 'Penjemputan Tepat Waktu'],
+      description: 'Perjalanan jelajah Pulau Flores paling diminati! Dimulai dari penjemputan di Ende, mengunjungi Danau Kelimutu, menelusuri keunikan budaya lokal di Bajawa dan Ruteng, hingga berakhir di keindahan kota pelabuhan Labuan Bajo.',
+      waMessage: 'Halo Cici Rentcar Ende, saya tertarik memesan Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo). Mohon info jadwal & penawarannya.'
     },
     {
-      id: 'tour-kelimutu-ende',
-      title: lang === 'EN' ? 'Ende & Kelimutu Day Tour' : 'Tour Wisata Kelimutu & Ende',
-      duration: lang === 'EN' ? '1 Day Tour' : '1 Hari Penuh (1 Day)',
-      location: 'Ende & Moni (Danau Kelimutu)',
-      price: 'Hubungi CS (081236024604)',
-      description: lang === 'EN'
-        ? 'Explore sunrise at Kelimutu 3-Color Lake, Bung Karno Exile House, and Ende local cultural spots.'
-        : 'Saksikan keindahan sunrise Danau 3 Warna Kelimutu, kunjungi Situs Rumah Pengasingan Bung Karno, dan Pantai Batu Hijau.',
-      image: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&q=80&w=600',
-      waMessage: 'Halo Cici Rentcar Ende, saya ingin memesan paket Tour Wisata Kelimutu & Ende. Mohon info ketersediaannya.'
+      id: 'tour-kelimutu',
+      name: 'Tour Kelimutu & Ende',
+      badge: 'WISATA SEJARAH & ALAM',
+      subtitle: 'Sunrise Moni, Kelimutu & Destinasi Kota Ende',
+      duration: '1 Hari Penuh (1 Day Tour)',
+      destinations: ['Danau 3 Warna Kelimutu', 'Rumah Pengasingan Bung Karno', 'Taman Renungan Bung Karno', 'Pantai Batu Hijau (Penggajawa)'],
+      features: ['Penjemputan Hotel / Bandara Ende', 'Driver Menguasai Spot Foto Terbaik', 'Kabin Steril & Nyaman', 'Konsultasi Waktu Sunrise'],
+      description: 'Nikmati keajaiban alam Danau 3 Warna Kelimutu saat matahari terbit di Moni, dilanjutkan dengan tur edukasi sejarah jejak perjuangan Bung Karno di Kota Ende serta keunikan Pantai Batu Hijau.',
+      waMessage: 'Halo Cici Rentcar Ende, saya ingin memesan paket Tour Wisata Kelimutu & Ende (1 Day Tour). Mohon rincian harganya.'
     },
     {
-      id: 'tour-shuttle-ende',
-      title: lang === 'EN' ? 'Ende Airport & Hotel Transfer' : 'Shuttle & Antar-Jemput Bandara Ende',
-      duration: lang === 'EN' ? 'One Way / Drop' : 'Sekali Jalan / Layanan Drop',
-      location: 'Bandara H. Hasan Aroeboesman Ende',
-      price: 'Hubungi CS (081236024604)',
-      description: lang === 'EN'
-        ? 'Punctual private pickup or drop-off shuttle service from H. Hasan Aroeboesman Airport to hotels or cities in Flores.'
-        : 'Layanan antar-jemput privat tepat waktu dari/ke Bandara H. Hasan Aroeboesman Ende menuju hotel atau kota-kota di Flores.',
-      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d7c26b?auto=format&fit=crop&q=80&w=600',
-      waMessage: 'Halo Cici Rentcar Ende, saya ingin memesan layanan Shuttle / Drop Bandara Ende. Mohon konfirmasi tarifnya.'
+      id: 'tour-riung',
+      name: 'Trip Ende - Riung 17 Pulau',
+      badge: 'WISATA MARITIM',
+      subtitle: 'Wisata Bahari & Pesona Taman Laut Riung',
+      duration: '2 Hari 1 Malam (2D1N)',
+      destinations: ['Taman Laut Riung 17 Pulau', 'Pulau Rutong', 'Pulau Ontoloe (Kelelawar)', 'Pantai Pasir Putih Riung'],
+      features: ['Armada Prima Rute Pegunungan', 'Driver Berpengalaman & Ramah', 'Jadwal Fleksibel', 'Kapasitas Pas Kelompok / Keluarga'],
+      description: 'Petualangan eksotis dari Ende menuju kawasan konservasi Taman Laut 17 Pulau Riung. Nikmati keindahan bawah laut, pulau-pulau tak berpenghuni dengan pasir putih halus, dan koloni kelelawar bakau.',
+      waMessage: 'Halo Cici Rentcar Ende, saya tertarik dengan paket Trip Ende - Riung 17 Pulau. Mohon informasi ketersediaan armada.'
+    },
+    {
+      id: 'shuttle-flores',
+      name: 'Shuttle & Drop Antar Kota',
+      badge: 'LAYANAN CEPAT & ON-TIME',
+      subtitle: 'Ende - Maumere / Bajawa / Ruteng / Labuan Bajo',
+      duration: 'Sekali Jalan (Drop Off)',
+      destinations: ['Bandara H. Hasan Aroeboesman Ende', 'Hotel & Penginapan', 'Pelabuhan Ende', 'Antar Kota Pulau Flores'],
+      features: ['Layanan 24/7 Standby', 'Armada Nyaman & Performa Prima', 'Tanpa Transit / Private Drop', 'Driver Sopan & Tepat Waktu'],
+      description: 'Layanan antar-jemput privat dari Bandara H. Hasan Aroeboesman Ende menuju hotel, pelabuhan, atau kota-kota tujuan Anda di seluruh Flores tanpa perlu repot berganti kendaraan.',
+      waMessage: 'Halo Cici Rentcar Ende, saya ingin memesan layanan Shuttle / Drop Antar Kota Flores. Mohon info ketersediaan & harganya.'
     }
   ];
 
-  const handleWhatsApp = (msg: string) => {
+  const currentRoute = routes[activeRouteIndex];
+
+  const handleBookingClick = (msg: string) => {
     const waNumber = '6281236024604';
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(msg)}`, '_blank', 'noreferrer');
   };
 
   return (
-    <section id="tours-view" className="py-24 bg-gray-50 overflow-hidden">
+    <section id="tours" className="py-20 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="font-display font-bold text-sm text-luxury-gold tracking-widest uppercase">
-            RUTE & PAKET PERJALANAN
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <span className="font-display font-bold text-xs text-luxury-gold tracking-widest uppercase">
+            RUTE & PAKET PERJALANAN FLORES
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-gray-900 tracking-tight uppercase">
-            Trip Lintas Flores & Destinasi Favorit
+            Jelajahi Pesona Pulau Flores
           </h2>
           <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
-            {lang === 'EN' 
-              ? 'Choose our curated premium overland trip across Flores Island with experienced local driver.'
-              : 'Nikmati perjalanan Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo) bersama driver profesional Cici Rentcar Ende.'}
+            Pilih rute impian Anda di bawah ini dan langsung booking via WhatsApp dengan mudah dan praktis.
           </p>
         </div>
 
-        {/* Tours Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tourPackages.map((pkg) => (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              key={pkg.id}
-              className="bg-white rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group overflow-hidden"
-            >
-              {/* Image & Price Overlay */}
-              <div className="relative overflow-hidden aspect-[4/3] bg-gray-100">
-                <img
-                  src={pkg.image}
-                  alt={pkg.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                
-                {/* Price Overlay Badge on Right */}
-                <div className="absolute top-4 right-0 bg-[#2563eb] text-white px-4 py-1.5 rounded-l-full rounded-r-none font-display font-bold text-xs shadow-md">
-                  {pkg.price}
-                </div>
-              </div>
+        {/* SINGLE ELEGANT FRAME BOX (1 Box Bingkai Rapih Simpel Berkelas) */}
+        <div className="bg-slate-900 text-white rounded-[32px] p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
+          
+          {/* Subtle Background Glow Accents */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563eb]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-luxury-gold/10 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Card Body */}
-              <div className="p-6 flex flex-col flex-grow space-y-4 text-left">
-                <div className="space-y-2">
-                  <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 group-hover:text-luxury-gold transition-colors leading-snug">
-                    {pkg.title}
+          {/* Top Frame Header: Route Selection Tabs inside Frame */}
+          <div className="relative z-10 mb-8 border-b border-white/10 pb-6">
+            <p className="text-xs font-display font-bold tracking-wider text-luxury-gold uppercase mb-4 flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4" />
+              <span>PILIH RUTE PERJALANAN (KLIK UNTUK DETAIL):</span>
+            </p>
+            
+            {/* Horizontal Tabs / Options */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {routes.map((route, idx) => {
+                const isActive = idx === activeRouteIndex;
+                return (
+                  <button
+                    key={route.id}
+                    onClick={() => setActiveRouteIndex(idx)}
+                    className={`p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer border flex flex-col justify-between ${
+                      isActive
+                        ? 'bg-[#2563eb] border-[#3b82f6] text-white shadow-lg shadow-blue-600/30 scale-[1.02]'
+                        : 'bg-slate-800/80 hover:bg-slate-800 border-white/5 text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    <div>
+                      <span className={`inline-block text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-full uppercase mb-2 ${
+                        isActive ? 'bg-white/20 text-white' : 'bg-luxury-gold/20 text-luxury-gold'
+                      }`}>
+                        {route.badge}
+                      </span>
+                      <h4 className="font-display font-bold text-sm leading-snug">
+                        {route.name}
+                      </h4>
+                    </div>
+                    <div className="flex items-center justify-between mt-3 text-xs opacity-80 pt-2 border-t border-white/10">
+                      <span className="text-[10px] font-medium">{route.duration}</span>
+                      <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'rotate-90 text-white' : ''}`} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Dynamic Details Box inside the Frame */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentRoute.id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+              className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            >
+              {/* Left Details Info */}
+              <div className="lg:col-span-7 space-y-6 text-left">
+                
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-luxury-gold/20 text-luxury-gold font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
+                      {currentRoute.badge}
+                    </span>
+                    <span className="text-gray-400 text-xs font-semibold flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-luxury-gold" />
+                      {currentRoute.duration}
+                    </span>
+                  </div>
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
+                    {currentRoute.name}
                   </h3>
-                  <p className="font-sans text-xs text-gray-500 line-clamp-3 leading-relaxed">
-                    {pkg.description}
+                  <p className="text-luxury-gold font-semibold text-xs sm:text-sm mt-1">
+                    📍 {currentRoute.subtitle}
                   </p>
                 </div>
 
-                {/* Info Spec Row */}
-                <div className="flex flex-wrap gap-4 text-gray-500 text-xs py-2 border-t border-b border-gray-50">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4 text-gray-400" />
-                    <span>{pkg.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4 text-gray-400" />
-                    <span>{pkg.location}</span>
+                <p className="font-sans text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  {currentRoute.description}
+                </p>
+
+                {/* Destinasi Chips */}
+                <div className="space-y-2">
+                  <p className="font-display font-bold text-[10px] uppercase tracking-widest text-gray-400 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-luxury-gold" />
+                    Destinasi Unggulan Yang Dikunjungi:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {currentRoute.destinations.map((dest, i) => (
+                      <span key={i} className="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+                        {dest}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Bottom Actions */}
-                <div className="pt-2 mt-auto flex items-center gap-3">
+              </div>
+
+              {/* Right Inclusions & Direct WhatsApp Booking Action */}
+              <div className="lg:col-span-5 bg-slate-800/90 rounded-2xl p-6 border border-white/10 space-y-6 text-left">
+                
+                <div>
+                  <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider mb-3 pb-2 border-b border-white/10">
+                    Fasilitas Layanan Termasuk:
+                  </h4>
+                  <ul className="space-y-2 text-xs text-gray-300 font-sans">
+                    {currentRoute.features.map((feat, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Direct Booking CTA */}
+                <div className="pt-2 border-t border-white/10 space-y-3">
+                  <div className="flex items-center justify-between text-xs text-gray-400">
+                    <span>Konsultasi Tarif & Ketersediaan:</span>
+                    <span className="text-emerald-400 font-bold">Fast Response 24/7</span>
+                  </div>
+
                   <button
-                    onClick={() => handleWhatsApp(pkg.waMessage)}
-                    className="flex-grow bg-[#2563eb] hover:bg-blue-700 text-white font-display font-bold text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md transition-all cursor-pointer text-center"
+                    onClick={() => handleBookingClick(currentRoute.waMessage)}
+                    className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-extrabold text-xs sm:text-sm py-4 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer group"
+                    id={`booking-btn-${currentRoute.id}`}
                   >
-                    {lang === 'EN' ? 'Book Package' : 'Pesan Paket Rute'}
-                  </button>
-                  
-                  {/* WhatsApp Direct Green button */}
-                  <button
-                    onClick={() => handleWhatsApp(pkg.waMessage)}
-                    className="bg-[#25D366] hover:bg-[#20ba5a] text-white p-3 rounded-xl transition-all flex items-center justify-center cursor-pointer shadow-sm shrink-0"
-                    title="Pesan via WhatsApp (081236024604)"
-                  >
-                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
+                    <PhoneCall className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <span>Pesan Rute Ini via WhatsApp (081236024604)</span>
                   </button>
                 </div>
+
               </div>
+
             </motion.div>
-          ))}
+          </AnimatePresence>
+
         </div>
 
       </div>
