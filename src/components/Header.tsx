@@ -71,12 +71,14 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
             {/* 1. BRAND LOGO (FAR LEFT) */}
             <div 
               onClick={() => handleItemClick({ label: t.nav_home, id: 'home', type: 'page', pageId: 'home' })}
-              className="flex items-center gap-2.5 cursor-pointer group shrink-0"
+              className="flex items-center gap-1 cursor-pointer group shrink-0"
               id="header-logo"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center font-display font-black text-lg shadow-md group-hover:scale-105 transition-transform border-2 border-white">
-                C
-              </div>
+              <img
+                src="/logo.png"
+                alt="Cici Rentcar Ende Logo"
+                className="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform"
+              />
               <div className="flex flex-col">
                 <span className="font-display font-black text-lg sm:text-xl tracking-tight text-[#0f172a] leading-none group-hover:text-orange-600 transition-colors">
                   CICI RENTCAR <span className="text-orange-600">ENDE</span>

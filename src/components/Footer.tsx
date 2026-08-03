@@ -46,13 +46,12 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
           
           {/* Column 1: Brand & Office Address */}
           <div className="md:col-span-5 space-y-6 text-left">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center font-display font-black text-lg shadow-xl border-2 border-white">
-                C
-              </div>
-              <span className="font-display font-black text-xl tracking-tight text-white uppercase">
-                CICI RENTCAR <span className="text-orange-500">ENDE</span>
-              </span>
+            <div className="flex items-center gap-2">
+              <img
+                src="/logo.png"
+                alt="Cici Rentcar Ende Logo"
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
             </div>
 
             <p className="font-sans text-xs text-slate-400 leading-relaxed max-w-sm">
