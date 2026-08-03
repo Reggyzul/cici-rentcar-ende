@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Clock, MapPin, CheckCircle2, ChevronRight, PhoneCall, Sparkles } from 'lucide-react';
+import { Clock, MapPin, CheckCircle2, ChevronRight, MessageCircle, Sparkles } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -66,33 +66,36 @@ export default function ToursList({ lang }: ToursListProps) {
   };
 
   return (
-    <section id="tours" className="py-20 bg-gray-50 overflow-hidden">
+    <section id="tours" className="py-20 bg-white text-[#0f172a] overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="font-display font-bold text-xs text-luxury-gold tracking-widest uppercase">
-            RUTE & PAKET PERJALANAN FLORES
-          </span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-gray-900 tracking-tight uppercase">
-            Jelajahi Pesona Pulau Flores
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
+            <Sparkles className="w-4 h-4 text-orange-600" />
+            <span>RUTE & PAKET PERJALANAN FLORES</span>
+          </div>
+
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0f172a] tracking-tight uppercase leading-tight">
+            Jelajahi Pesona <span className="text-orange-600">Pulau Flores</span>
           </h2>
-          <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
+
+          <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
             Pilih rute impian Anda di bawah ini dan langsung booking via WhatsApp dengan mudah dan praktis.
           </p>
         </div>
 
-        {/* SINGLE ELEGANT FRAME BOX (1 Box Bingkai Rapih Simpel Berkelas) */}
-        <div className="bg-slate-900 text-white rounded-[32px] p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
+        {/* SINGLE ELEGANT FRAME BOX (Matching farhanatravel style) */}
+        <div className="bg-[#0f172a] text-white rounded-[32px] p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
           
           {/* Subtle Background Glow Accents */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563eb]/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-luxury-gold/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Top Frame Header: Route Selection Tabs inside Frame */}
           <div className="relative z-10 mb-8 border-b border-white/10 pb-6">
-            <p className="text-xs font-display font-bold tracking-wider text-luxury-gold uppercase mb-4 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4" />
+            <p className="text-xs font-display font-bold tracking-wider text-orange-400 uppercase mb-4 flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-orange-400" />
               <span>PILIH RUTE PERJALANAN (KLIK UNTUK DETAIL):</span>
             </p>
             
@@ -106,13 +109,13 @@ export default function ToursList({ lang }: ToursListProps) {
                     onClick={() => setActiveRouteIndex(idx)}
                     className={`p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer border flex flex-col justify-between ${
                       isActive
-                        ? 'bg-[#2563eb] border-[#3b82f6] text-white shadow-lg shadow-blue-600/30 scale-[1.02]'
-                        : 'bg-slate-800/80 hover:bg-slate-800 border-white/5 text-gray-300 hover:text-white'
+                        ? 'bg-gradient-to-r from-orange-500 to-orange-600 border-orange-400 text-white shadow-lg shadow-orange-500/30 scale-[1.02]'
+                        : 'bg-slate-800/80 hover:bg-slate-800 border-white/5 text-slate-300 hover:text-white'
                     }`}
                   >
                     <div>
                       <span className={`inline-block text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-full uppercase mb-2 ${
-                        isActive ? 'bg-white/20 text-white' : 'bg-luxury-gold/20 text-luxury-gold'
+                        isActive ? 'bg-white/20 text-white' : 'bg-orange-500/20 text-orange-400'
                       }`}>
                         {route.badge}
                       </span>
@@ -145,30 +148,30 @@ export default function ToursList({ lang }: ToursListProps) {
                 
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-luxury-gold/20 text-luxury-gold font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
+                    <span className="bg-orange-500/20 text-orange-400 font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
                       {currentRoute.badge}
                     </span>
-                    <span className="text-gray-400 text-xs font-semibold flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-luxury-gold" />
+                    <span className="text-slate-400 text-xs font-semibold flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-orange-400" />
                       {currentRoute.duration}
                     </span>
                   </div>
                   <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
                     {currentRoute.name}
                   </h3>
-                  <p className="text-luxury-gold font-semibold text-xs sm:text-sm mt-1">
+                  <p className="text-orange-400 font-semibold text-xs sm:text-sm mt-1">
                     📍 {currentRoute.subtitle}
                   </p>
                 </div>
 
-                <p className="font-sans text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
                   {currentRoute.description}
                 </p>
 
                 {/* Destinasi Chips */}
                 <div className="space-y-2">
-                  <p className="font-display font-bold text-[10px] uppercase tracking-widest text-gray-400 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-luxury-gold" />
+                  <p className="font-display font-bold text-[10px] uppercase tracking-widest text-slate-400 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-orange-400" />
                     Destinasi Unggulan Yang Dikunjungi:
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -189,7 +192,7 @@ export default function ToursList({ lang }: ToursListProps) {
                   <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider mb-3 pb-2 border-b border-white/10">
                     Fasilitas Layanan Termasuk:
                   </h4>
-                  <ul className="space-y-2 text-xs text-gray-300 font-sans">
+                  <ul className="space-y-2 text-xs text-slate-300 font-sans">
                     {currentRoute.features.map((feat, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -201,17 +204,17 @@ export default function ToursList({ lang }: ToursListProps) {
 
                 {/* Direct Booking CTA */}
                 <div className="pt-2 border-t border-white/10 space-y-3">
-                  <div className="flex items-center justify-between text-xs text-gray-400">
+                  <div className="flex items-center justify-between text-xs text-slate-400">
                     <span>Konsultasi Tarif & Ketersediaan:</span>
                     <span className="text-emerald-400 font-bold">Fast Response 24/7</span>
                   </div>
 
                   <button
                     onClick={() => handleBookingClick(currentRoute.waMessage)}
-                    className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-extrabold text-xs sm:text-sm py-4 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer group"
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-display font-extrabold text-xs sm:text-sm py-4 px-6 rounded-xl shadow-lg shadow-orange-500/25 transition-all flex items-center justify-center gap-2.5 cursor-pointer group"
                     id={`booking-btn-${currentRoute.id}`}
                   >
-                    <PhoneCall className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <MessageCircle className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
                     <span>Pesan Rute Ini via WhatsApp (081236024604)</span>
                   </button>
                 </div>

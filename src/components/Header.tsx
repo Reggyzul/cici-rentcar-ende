@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, ChevronDown, MapPin, Phone, Clock } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from '../utils/translations';
 
@@ -8,15 +8,14 @@ interface HeaderProps {
   onNavClick: (sectionId: string) => void;
   lang: 'ID' | 'EN';
   setLang: (lang: 'ID' | 'EN') => void;
-  currentPage: 'home' | 'tours' | 'rentals';
-  setCurrentPage: (page: 'home' | 'tours' | 'rentals') => void;
+  currentPage: 'home' | 'about' | 'tours' | 'rentals';
+  setCurrentPage: (page: 'home' | 'about' | 'tours' | 'rentals') => void;
   onBookingClick: () => void;
 }
 
 export default function Header({ activeSection, onNavClick, lang, setLang, currentPage, setCurrentPage, onBookingClick }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showLangDropdown, setShowLangDropdown] = useState(false);
 
   const t = TRANSLATIONS[lang];
 
@@ -34,10 +33,9 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
 
   const navItems = [
     { label: t.nav_home, id: 'home', type: 'page', pageId: 'home' },
-    { label: lang === 'EN' ? 'Tours & Routes' : 'Rute & Trip', id: 'tours', type: 'section', sectionId: 'tours' },
-    { label: lang === 'EN' ? 'Fleet & Rates' : 'Daftar Armada', id: 'rentals', type: 'page', pageId: 'rentals' },
-    { label: t.nav_about, id: 'about', type: 'section', sectionId: 'about' },
-    { label: lang === 'EN' ? 'Reviews' : 'Ulasan', id: 'testimonials', type: 'section', sectionId: 'testimonials' },
+    { label: 'Daftar Armada', id: 'cars', type: 'section', sectionId: 'cars' },
+    { label: 'Rute & Trip', id: 'tours', type: 'section', sectionId: 'tours' },
+    { label: 'Keunggulan', id: 'about', type: 'section', sectionId: 'about' },
     { label: t.nav_contact, id: 'contact', type: 'section', sectionId: 'contact' },
   ];
 
@@ -59,64 +57,36 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
       id="main-header"
       className="fixed top-0 left-0 w-full z-50 flex flex-col shadow-sm"
     >
-      {/* 1. Top Bar / Header Contact */}
-      <div className="bg-luxury-black text-gray-300 text-[10px] sm:text-xs py-2.5 px-4 sm:px-6 lg:px-8 border-b border-white/5 flex justify-between items-center">
-        <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-luxury-gold shrink-0" />
-            <span className="truncate max-w-[280px] sm:max-w-none text-center sm:text-left">{t.topbar_address}</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a 
-              href="https://api.whatsapp.com/send?phone=6281236024604" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="flex items-center gap-1.5 hover:text-luxury-gold transition-colors font-semibold"
-            >
-              <Phone className="w-3.5 h-3.5 text-luxury-gold shrink-0 animate-pulse" />
-              <span>081236024604</span>
-            </a>
-            <div className="h-3 w-px bg-white/20 hidden sm:block" />
-            <div className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-luxury-gold shrink-0" />
-              <span>{t.topbar_service}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Main Navigation Bar */}
+      {/* Main Navigation Bar */}
       <div
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md py-3 border-b border-slate-100'
-            : 'bg-white py-4 border-b border-slate-100'
+            ? 'bg-white/95 backdrop-blur-md py-2 border-b border-slate-200/80 shadow-md'
+            : 'bg-white py-3 border-b border-slate-200/80'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-14">
             
-            {/* Brand Logo & Name */}
+            {/* 1. BRAND LOGO (FAR LEFT) */}
             <div 
               onClick={() => handleItemClick({ label: t.nav_home, id: 'home', type: 'page', pageId: 'home' })}
-              className="flex items-center gap-3 cursor-pointer group"
+              className="flex items-center gap-2.5 cursor-pointer group shrink-0"
               id="header-logo"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#2563eb] text-white flex items-center justify-center font-display font-black text-xl shadow-lg">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center font-display font-black text-lg shadow-md group-hover:scale-105 transition-transform border-2 border-white">
                 C
               </div>
-              <div className="flex flex-col text-left">
-                <span className="font-display font-black text-lg sm:text-xl text-gray-900 tracking-tight leading-none group-hover:text-[#2563eb] transition-colors">
-                  CICI RENTCAR
+              <div className="flex flex-col">
+                <span className="font-display font-black text-lg sm:text-xl tracking-tight text-[#0f172a] leading-none group-hover:text-orange-600 transition-colors">
+                  CICI RENTCAR <span className="text-orange-600">ENDE</span>
                 </span>
-                <span className="font-display font-bold text-xs tracking-widest text-luxury-gold uppercase mt-0.5">
-                  ENDE - FLORES
-                </span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">FLORES - NTT</span>
               </div>
             </div>
 
-            {/* Desktop Nav Items */}
-            <nav className="hidden lg:flex items-center gap-6" id="desktop-nav">
+            {/* 2. DESKTOP NAV ITEMS */}
+            <nav className="hidden lg:flex items-center gap-2 xl:gap-3 mx-auto" id="desktop-nav">
               {navItems.map((item) => {
                 const isItemActive = 
                   (item.type === 'page' && currentPage === item.pageId) ||
@@ -126,86 +96,38 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
                   <button
                     key={item.id}
                     onClick={() => handleItemClick(item)}
-                    className={`font-display text-sm font-semibold transition-colors cursor-pointer relative py-2 px-1 ${
+                    className={`font-sans text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer relative px-4 py-1.5 rounded-full ${
                       isItemActive
-                        ? 'text-luxury-gold'
-                        : 'text-gray-600 hover:text-luxury-gold'
+                        ? 'text-orange-600 bg-orange-50 border border-orange-200/80 shadow-xs'
+                        : 'text-[#0f172a] hover:text-orange-600 hover:bg-slate-100/80'
                     }`}
                     id={`nav-link-${item.id}`}
                   >
                     {item.label}
-                    {isItemActive && (
-                      <motion.div
-                        layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-luxury-gold"
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      />
-                    )}
                   </button>
                 );
               })}
             </nav>
 
-            {/* Right Utilities */}
-            <div className="flex items-center gap-3">
-              {/* Language Selector */}
-              <div className="relative">
-                <button
-                  onClick={() => setShowLangDropdown(!showLangDropdown)}
-                  className="bg-luxury-gold hover:bg-luxury-gold-dark text-white font-display font-semibold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
-                  id="language-btn"
-                >
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>{lang === 'ID' ? 'ID' : 'EN'}</span>
-                  <ChevronDown className="w-3.5 h-3.5" />
-                </button>
-                
-                <AnimatePresence>
-                  {showLangDropdown && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl py-1 border border-gray-100 z-50 animate-fade-in"
-                    >
-                      <button
-                        onClick={() => {
-                          setLang('ID');
-                          setShowLangDropdown(false);
-                        }}
-                        className="w-full text-left px-4 py-2 text-xs font-display font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between"
-                      >
-                        <span>Indonesia</span>
-                        {lang === 'ID' && <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold"></span>}
-                      </button>
-                      <button
-                        onClick={() => {
-                          setLang('EN');
-                          setShowLangDropdown(false);
-                        }}
-                        className="w-full text-left px-4 py-2 text-xs font-display font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between"
-                      >
-                        <span>English</span>
-                        {lang === 'EN' && <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold"></span>}
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* BOOKING SEKARANG Solid Blue CTA Button */}
-              <button
-                onClick={onBookingClick}
-                className="bg-[#2563eb] hover:bg-blue-700 text-white font-display font-extrabold text-xs uppercase py-2.5 px-5 rounded-xl transition-all shadow-md cursor-pointer shrink-0 hidden md:block"
+            {/* 3. CTA BUTTON (FAR RIGHT) */}
+            <div className="hidden lg:flex items-center shrink-0">
+              <a
+                href="https://api.whatsapp.com/send?phone=6281236024604&text=Halo%20Cici%20Rentcar%20Ende,%20saya%20ingin%20tanya%20jadwal%20dan%20pemesanan%20rental%20mobil."
+                target="_blank"
+                rel="noreferrer"
+                className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 hover:from-orange-700 hover:to-amber-700 text-white font-sans font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md shadow-orange-500/25 transition-all duration-300 cursor-pointer flex items-center gap-1.5 border border-orange-400/30 hover:scale-105"
               >
-                {lang === 'EN' ? 'BOOKING NOW' : 'PESAN MOBIL'}
-              </button>
+                <span>PESAN WA (081236024604)</span>
+              </a>
+            </div>
 
-              {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Button */}
+            <div className="flex items-center gap-3 lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 text-gray-600 hover:text-luxury-gold transition-colors cursor-pointer rounded-full"
-                id="mobile-menu-btn"
+                className="p-2.5 rounded-xl bg-slate-100 text-[#0f172a] hover:text-orange-600 focus:outline-none cursor-pointer border border-slate-200"
+                aria-label="Toggle menu"
+                id="hamburger-btn"
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -215,53 +137,42 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100 shadow-inner overflow-hidden"
-            id="mobile-drawer"
+            className="lg:hidden bg-white border-b border-slate-200 shadow-xl overflow-hidden"
+            id="mobile-menu"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              {navItems.map((item) => {
-                const isItemActive = 
-                  (item.type === 'page' && currentPage === item.pageId) ||
-                  (item.type === 'section' && activeSection === item.sectionId && currentPage === 'home');
-                  
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => handleItemClick(item)}
-                    className={`block w-full text-left px-4 py-3 font-display text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
-                      isItemActive
-                        ? 'bg-gold-50 text-luxury-gold border-l-4 border-luxury-gold pl-3'
-                        : 'text-gray-700 hover:bg-gray-50 hover:text-luxury-gold'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
-              
-              {/* Mobile Booking Button */}
-              <div className="pt-4">
+            <div className="px-4 pt-3 pb-6 space-y-2">
+              {navItems.map((item) => (
                 <button
-                  onClick={() => {
-                    onBookingClick();
-                    setIsOpen(false);
-                  }}
-                  className="w-full bg-[#2563eb] hover:bg-blue-700 text-white font-display font-extrabold text-xs uppercase py-3 rounded-xl transition-all shadow-md cursor-pointer text-center"
+                  key={item.id}
+                  onClick={() => handleItemClick(item)}
+                  className="block w-full text-left font-display font-bold text-base text-[#0f172a] hover:text-orange-600 py-3 border-b border-slate-100 cursor-pointer"
                 >
-                  {lang === 'EN' ? 'BOOKING NOW' : 'PESAN MOBIL SEKARANG'}
+                  {item.label}
                 </button>
+              ))}
+
+              <div className="pt-2">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6281236024604&text=Halo%20Cici%20Rentcar%20Ende,%20saya%20ingin%20tanya%20jadwal%20dan%20pemesanan%20rental%20mobil."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full bg-orange-600 text-white font-sans font-bold text-sm uppercase py-3.5 rounded-xl shadow-md flex items-center justify-center cursor-pointer"
+                >
+                  Pesan via WhatsApp (081236024604)
+                </a>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </header>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Headset, Phone, MapPin } from 'lucide-react';
+import { Headset, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 
 interface FooterProps {
@@ -11,27 +11,33 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
   const t = TRANSLATIONS[lang];
 
   return (
-    <footer id="contact" className="bg-luxury-black text-white pt-20 pb-8 border-t border-white/5 relative overflow-hidden">
+    <footer id="contact" className="bg-slate-900 text-white pt-20 pb-8 border-t border-slate-800 relative overflow-hidden">
       
       {/* Absolute background accent line */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-luxury-gold via-gold-300 to-luxury-gold" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Upper pre-footer callout section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-white/10 items-center">
+        {/* Upper pre-footer callout section matching farhanatravel */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-slate-800 items-center">
           <div className="space-y-2 text-left">
-            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-luxury-gold">
+            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-orange-400">
               CICI RENTCAR ENDE
             </h3>
-            <p className="font-sans text-sm text-gray-300">
+            <p className="font-sans text-sm text-slate-300">
               {t.footer_pre_desc}
             </p>
           </div>
           <div className="flex justify-start md:justify-end">
-            <div className="font-display font-black text-2xl text-white/40 tracking-wider">
-              FLORES - NTT
-            </div>
+            <a
+              href="https://api.whatsapp.com/send?phone=6281236024604&text=Halo%20Cici%20Rentcar%20Ende,%20saya%20ingin%20tanya%20jadwal%20dan%20pemesanan%20rental%20mobil."
+              target="_blank"
+              rel="noreferrer"
+              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-sans font-bold text-xs uppercase px-6 py-3.5 rounded-xl shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>WhatsApp CS: 081236024604</span>
+            </a>
           </div>
         </div>
 
@@ -41,61 +47,57 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
           {/* Column 1: Brand & Office Address */}
           <div className="md:col-span-5 space-y-6 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#2563eb] text-white flex items-center justify-center font-display font-black text-lg shadow-md">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center font-display font-black text-lg shadow-xl border-2 border-white">
                 C
               </div>
-              <div className="flex flex-col">
-                <span className="font-display font-black text-lg text-white tracking-tight leading-none">
-                  CICI RENTCAR
-                </span>
-                <span className="font-display font-bold text-[10px] tracking-widest text-luxury-gold uppercase mt-0.5">
-                  ENDE, FLORES - NTT
-                </span>
-              </div>
+              <span className="font-display font-black text-xl tracking-tight text-white uppercase">
+                CICI RENTCAR <span className="text-orange-500">ENDE</span>
+              </span>
             </div>
 
-            <p className="font-sans text-xs text-gray-400 leading-relaxed max-w-sm">
+            <p className="font-sans text-xs text-slate-400 leading-relaxed max-w-sm">
               {t.footer_desc}
             </p>
 
-            <div className="text-xs text-gray-400 font-sans space-y-2.5">
+            <div className="text-xs text-slate-300 font-sans space-y-2.5">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4.5 h-4.5 text-luxury-gold shrink-0 mt-0.5" />
-                <span>{t.footer_office}</span>
+                <MapPin className="w-4.5 h-4.5 text-orange-400 shrink-0 mt-0.5" />
+                <span className="hover:text-orange-400 transition-colors">
+                  {t.footer_office}
+                </span>
               </div>
-              <p>©2026 Cici Rentcar Ende. {t.footer_rights}</p>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4.5 h-4.5 text-orange-400 shrink-0" />
+                <span>WhatsApp / Telp: <strong>081236024604</strong></span>
+              </div>
+              <p className="pt-2 text-slate-500">©2026 Cici Rentcar Ende. {t.footer_rights}</p>
             </div>
           </div>
 
           {/* Column 2: Navigation Links */}
           <div className="md:col-span-3 space-y-4 text-left">
-            <h4 className="font-display font-bold text-sm tracking-widest text-luxury-gold uppercase border-l-2 border-luxury-gold pl-2">
-              Menu Navigasi
+            <h4 className="font-display font-bold text-sm tracking-widest text-orange-400 uppercase border-l-2 border-orange-500 pl-2">
+              Navigasi Halaman
             </h4>
-            <ul className="space-y-2.5 text-xs font-sans text-gray-400">
+            <ul className="space-y-2.5 text-xs font-sans text-slate-400">
               <li>
-                <button onClick={() => onNavClick('home')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_home}
+                <button onClick={() => onNavClick('home')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                  • Beranda Utama
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('about')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_about}
+                <button onClick={() => onNavClick('cars')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                  • Daftar Armada & Harga Harian
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('tours')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {lang === 'EN' ? 'Tours & Routes' : 'Rute & Trip'}
+                <button onClick={() => onNavClick('tours')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                  • Rute & Trip Lintas Flores
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('cars')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_cars}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavClick('steps')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_steps}
+                <button onClick={() => onNavClick('about')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                  • Keunggulan Cici Rentcar Ende
                 </button>
               </li>
             </ul>
@@ -103,46 +105,25 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
 
           {/* Column 3: Contact details & Interactive Google Map */}
           <div className="md:col-span-4 space-y-4 text-left">
-            <h4 className="font-display font-bold text-sm tracking-widest text-luxury-gold uppercase border-l-2 border-luxury-gold pl-2">
+            <h4 className="font-display font-bold text-sm tracking-widest text-orange-400 uppercase border-l-2 border-orange-500 pl-2">
               {t.footer_hubungi}
             </h4>
-            
-            <div className="space-y-4 text-xs font-sans text-gray-400">
-              {/* WhatsApp Fast Response */}
-              <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0">
-                  <Headset className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase font-bold text-gray-500">WhatsApp Fast Response</p>
-                  <a 
-                    href="https://api.whatsapp.com/send?phone=6281236024604"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-display font-bold text-white hover:text-luxury-gold mt-0.5 block"
-                  >
-                    081236024604
-                  </a>
-                </div>
-              </div>
 
-              {/* Direct Call Tel */}
-              <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-luxury-gold/10 text-luxury-gold flex items-center justify-center shrink-0">
-                  <Phone className="w-4 h-4" />
-                </div>
+            <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700 space-y-3">
+              <div className="flex items-center gap-3">
+                <Headset className="w-5 h-5 text-orange-400" />
                 <div>
-                  <p className="text-[10px] uppercase font-bold text-gray-500">Direct Call / Telepon</p>
-                  <a href="tel:+6281236024604" className="font-semibold text-white mt-0.5 block hover:text-luxury-gold">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase block">Fast Response 24 Jam</span>
+                  <a href="https://api.whatsapp.com/send?phone=6281236024604" target="_blank" rel="noreferrer" className="font-display font-bold text-base text-orange-400 hover:underline">
                     081236024604
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Google Map Embed for Ende, Flores */}
+            {/* Google Map Embed (Ende, Flores, NTT) */}
             <div className="pt-2">
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg w-full h-36 bg-white/5">
+              <div className="rounded-2xl overflow-hidden border border-slate-700 shadow-xl w-full h-44 bg-slate-900 relative group">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.526233512398!2d121.65083331478201!3d-8.846505993648057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c3558bc671912a7%3A0xb35bc7a3f019f6a5!2sJl.%20R.%20W.%20Monginsidi%2C%20Bhoanawa%2C%20Kec.%20Ende%20Sel.%2C%20Kabupaten%20Ende%2C%20Nusa%20Tenggara%20Tim.!5e0!3m2!1sid!2sid!4v1689999999999!5m2!1sid!2sid"
                   width="100%" 
@@ -151,8 +132,17 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                   allowFullScreen={true}
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Cici Rentcar Ende Location Map"
+                  title="Lokasi Cici Rentcar Ende"
                 ></iframe>
+                <a 
+                  href="https://maps.google.com/?q=Jl.+R.W.+Monginsidi,+Bhoanawa,+Kota+Ende,+Flores,+NTT"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="absolute bottom-2.5 right-2.5 bg-orange-600 hover:bg-orange-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-1.5 transition-all border border-white/20"
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Buka Google Maps</span>
+                </a>
               </div>
             </div>
 
@@ -161,7 +151,7 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
         </div>
 
         {/* Lower Disclaimer */}
-        <div className="border-t border-white/10 pt-8 text-center text-[10px] text-gray-500 font-sans leading-relaxed">
+        <div className="border-t border-slate-800 pt-8 text-center text-[10px] text-slate-500 font-sans leading-relaxed">
           {t.footer_disclaimer}
         </div>
 
