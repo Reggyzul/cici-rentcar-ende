@@ -54,7 +54,7 @@ export const CARS: Car[] = [
     category: 'Luxury MPV',
     pricePerDay: 1300000,
     priceDisplay: 'Rp 1.300.000 / Hari',
-    image: '/innova3.avif',
+    image: '/innova_reborn.png',
     seats: 7,
     transmission: 'Manual/Matic',
     fuel: 'Diesel / Gasoline',
