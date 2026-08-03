@@ -84,7 +84,7 @@ export default function Hero({ onRentClick, onVisiMisiClick, lang }: HeroProps) 
               <span className="font-display font-black text-base text-[#0f172a] block mt-0.5">Rp 800.000 <span className="text-[11px] font-medium text-slate-500">/hari</span></span>
             </div>
             <div className="p-3.5 rounded-2xl bg-orange-50/80 border border-orange-100 text-center">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-orange-700 block">Toyota Innova Grand</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-orange-700 block">Toyota Grand Innova</span>
               <span className="font-display font-black text-base text-[#0f172a] block mt-0.5">Rp 1.000.000 <span className="text-[11px] font-medium text-slate-500">/hari</span></span>
             </div>
             <div className="p-3.5 rounded-2xl bg-emerald-50/80 border border-emerald-100 text-center">

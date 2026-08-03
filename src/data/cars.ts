@@ -25,13 +25,13 @@ export const CARS: Car[] = [
     ]
   },
   {
-    id: 'toyota-innova-grand',
-    name: 'Toyota Innova Grand',
-    nameAr: 'تويوتا إنوفا جراند',
+    id: 'toyota-grand-innova',
+    name: 'Toyota Grand Innova',
+    nameAr: 'تويوتا جراند إنوفا',
     category: 'Comfort MPV',
     pricePerDay: 1000000,
     priceDisplay: 'Rp 1.000.000 / Hari',
-    image: '/innova3.avif',
+    image: '/innova_grand.jpg',
     seats: 7,
     transmission: 'Manual/Matic',
     fuel: 'Gasoline / Diesel',
@@ -43,7 +43,7 @@ export const CARS: Car[] = [
     rating: 4.9,
     reviewsCount: 134,
     specifications: [
-      { label: 'Kapasitas', value: 'Maks. 7 Penumpang', labelAr: 'السعة', valueAr: '٧ ركاب' },
+      { label: 'Kapasitas', value: 'Maks. 7 Penumpang', labelAr: 'السعة', valueAr: '٦ ركاب' },
       { label: 'Fasilitas', value: 'AC dingin, kabin bersih, Audio/USB, Driver ramah & berpengalaman', labelAr: 'الميزات', valueAr: 'مكيف dingin، kabin lapang، Audio/USB، driver berpengalaman' }
     ]
   },
@@ -97,10 +97,10 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 'testi-3',
     name: 'Budi Kurniawan',
     role: 'Rombongan Dinas dari Denpasar',
-    text: 'Pakai Innova Grand dari Cici Rentcar Ende untuk perjalanan dinas Ende - Maumere - Bajawa. Perjalanan jauh terasa nyaman, kabin bersih, drivernya sopan & handal mengemudi di jalanan berliku.',
+    text: 'Pakai Grand Innova dari Cici Rentcar Ende untuk perjalanan dinas Ende - Maumere - Bajawa. Perjalanan jauh terasa nyaman, kabin bersih, drivernya sopan & handal mengemudi di jalanan berliku.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150',
-    carModel: 'Toyota Innova Grand',
+    carModel: 'Toyota Grand Innova',
     date: 'Mei 2026'
   }
 ];
