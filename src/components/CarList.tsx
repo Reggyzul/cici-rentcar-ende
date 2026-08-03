@@ -20,22 +20,22 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
   };
 
   return (
-    <section id="cars" className="py-20 bg-slate-50 text-[#0f172a] overflow-hidden relative border-b border-slate-200">
+    <section id="cars" className="py-20 bg-slate-50 text-[#0b192c] overflow-hidden relative border-b border-slate-200">
       
       {/* Background Subtle Soft Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-orange-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3" id="cars-heading">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
-            <Sparkles className="w-4 h-4 text-orange-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
+            <Sparkles className="w-4 h-4 text-blue-700" />
             <span>KATALOG ARMADA & TARIF HARIAN</span>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0f172a] tracking-tight uppercase leading-tight">
-            Armada <span className="text-orange-600">Cici Rentcar Ende</span>
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0b192c] tracking-tight uppercase leading-tight">
+            Armada <span className="text-blue-800">Cici Rentcar Ende</span>
           </h2>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
@@ -52,7 +52,7 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               key={car.id}
-              className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-md hover:shadow-2xl hover:border-orange-300 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-md hover:shadow-2xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
               id={`car-card-${car.id}`}
             >
               <div className="space-y-5 text-left">
@@ -64,21 +64,21 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
                     alt={car.name}
                     className="w-full h-auto object-contain max-h-[170px] drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-orange-50 text-orange-700 border border-orange-200 font-display font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-sm">
+                  <div className="absolute top-3 left-3 bg-blue-50 text-blue-900 border border-blue-200 font-display font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-sm">
                     {car.category}
                   </div>
                   <div className="absolute top-3 right-3 bg-emerald-50 text-emerald-800 border border-emerald-200 font-display font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-sm">
                     {car.pricePerDay > 0 ? `Rp ${car.pricePerDay.toLocaleString('id-ID')} / hari` : 'Hubungi Kontak'}
                   </div>
                   <div className="absolute bottom-3 right-3 bg-white/95 text-slate-700 font-sans text-[10px] font-bold px-2.5 py-1 rounded-full border border-slate-200 flex items-center gap-1.5 shadow-sm">
-                    <Users className="w-3.5 h-3.5 text-orange-600" />
+                    <Users className="w-3.5 h-3.5 text-blue-700" />
                     <span>{car.seats} Kursi</span>
                   </div>
                 </div>
 
                 {/* Car Name & Description */}
                 <div>
-                  <h3 className="font-display font-black text-2xl text-[#0f172a] group-hover:text-orange-600 transition-colors uppercase tracking-tight">
+                  <h3 className="font-display font-black text-2xl text-[#0b192c] group-hover:text-blue-800 transition-colors uppercase tracking-tight">
                     {car.name}
                   </h3>
                   <p className="font-sans text-xs text-slate-600 leading-relaxed mt-1 font-medium">
@@ -88,7 +88,7 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
 
                 {/* COMPLETE FACILITIES CHECKLIST */}
                 <div className="space-y-2 pt-2 border-t border-slate-100">
-                  <span className="text-[10px] font-extrabold tracking-wider uppercase text-orange-600 block">Fasilitas & Layanan Termasuk:</span>
+                  <span className="text-[10px] font-extrabold tracking-wider uppercase text-blue-800 block">Fasilitas & Layanan Termasuk:</span>
                   <div className="space-y-1.5">
                     {car.includeList.map((facility, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
@@ -96,8 +96,8 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
                         <span className="line-clamp-1">{facility}</span>
                       </div>
                     ))}
-                    <div className="flex items-center gap-2 text-xs font-bold text-orange-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                    <div className="flex items-center gap-2 text-xs font-bold text-blue-900">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
                       <span>Driver Ramah & Berpengalaman</span>
                     </div>
                   </div>
@@ -105,11 +105,11 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
 
               </div>
 
-              {/* Action Buttons matching farhanatravel style */}
+              {/* Action Buttons */}
               <div className="pt-5 mt-5 border-t border-slate-100 flex items-center gap-2">
                 <button
                   onClick={() => handleWhatsAppBooking(car.name)}
-                  className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-sans font-bold text-xs uppercase py-3.5 px-3 rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="flex-1 bg-gradient-to-r from-blue-700 to-indigo-900 hover:from-blue-800 hover:to-indigo-950 text-white font-sans font-bold text-xs uppercase py-3.5 px-3 rounded-xl shadow-md shadow-blue-900/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 fill-current shrink-0" />
                   <span>Pesan via WA</span>
@@ -117,7 +117,7 @@ export default function CarList({ onSelectCar, lang }: CarListProps) {
 
                 <button
                   onClick={() => onSelectCar(car)}
-                  className="bg-slate-100 hover:bg-slate-200 text-[#0f172a] border border-slate-200 font-sans font-bold text-xs uppercase py-3.5 px-3 rounded-xl transition-all cursor-pointer"
+                  className="bg-slate-100 hover:bg-slate-200 text-[#0b192c] border border-slate-200 font-sans font-bold text-xs uppercase py-3.5 px-3 rounded-xl transition-all cursor-pointer"
                   title="Form Reservasi Lengkap"
                 >
                   Reservasi

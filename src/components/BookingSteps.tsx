@@ -37,18 +37,18 @@ export default function BookingSteps({ lang }: BookingStepsProps) {
   };
 
   return (
-    <section id="steps" className="py-20 bg-slate-50 text-[#0f172a] overflow-hidden border-b border-slate-200">
+    <section id="steps" className="py-20 bg-slate-50 text-[#0b192c] overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
-            <Sparkles className="w-4 h-4 text-orange-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
+            <Sparkles className="w-4 h-4 text-blue-700" />
             <span>CARA PEMESANAN MUDAH</span>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0f172a] tracking-tight uppercase leading-tight">
-            3 Langkah Cepat <span className="text-orange-600">Memesan</span>
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0b192c] tracking-tight uppercase leading-tight">
+            3 Langkah Cepat <span className="text-blue-800">Memesan</span>
           </h2>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
@@ -65,14 +65,14 @@ export default function BookingSteps({ lang }: BookingStepsProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.12 }}
               key={index}
-              className="bg-white rounded-3xl p-8 shadow-md border border-slate-200/90 hover:shadow-xl hover:border-orange-300 transition-all duration-300 flex flex-col items-center text-center group"
+              className="bg-white rounded-3xl p-8 shadow-md border border-slate-200/90 hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col items-center text-center group"
             >
               {/* Step Number Circle */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 text-white flex items-center justify-center font-display font-black text-xl shadow-lg shadow-orange-500/25 mb-6 group-hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-700 to-indigo-900 text-white flex items-center justify-center font-display font-black text-xl shadow-lg shadow-blue-900/25 mb-6 group-hover:scale-105 transition-transform duration-300">
                 {stepItem.step}
               </div>
               
-              <h3 className="font-display font-bold text-lg text-[#0f172a] mb-3 group-hover:text-orange-600 transition-colors">
+              <h3 className="font-display font-bold text-lg text-[#0b192c] mb-3 group-hover:text-blue-800 transition-colors">
                 {stepItem.title}
               </h3>
               <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed font-medium max-w-xs">
@@ -83,7 +83,7 @@ export default function BookingSteps({ lang }: BookingStepsProps) {
               {index === 1 && (
                 <button
                   onClick={handleWhatsAppContact}
-                  className="mt-5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
+                  className="mt-5 bg-gradient-to-r from-blue-700 to-indigo-900 hover:from-blue-800 hover:to-indigo-950 text-white font-bold text-xs py-2.5 px-4 rounded-xl flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
                   <span>WhatsApp 081236024604</span>

@@ -103,7 +103,7 @@ export default function App() {
 
   return (
     <div 
-      className="relative min-h-screen bg-[#f8fafc] text-gray-800 selection:bg-orange-500 selection:text-white font-sans" 
+      className="relative min-h-screen bg-[#f8fafc] text-slate-800 selection:bg-blue-800 selection:text-white font-sans" 
       id="main-app-container"
     >
       
@@ -118,7 +118,7 @@ export default function App() {
         onBookingClick={() => setSelectedCar(CARS[0])}
       />
 
-      {/* Main Page Layout Flow matching farhanatravel */}
+      {/* Main Page Layout Flow */}
       <main className="relative z-10">
         
         {currentPage === 'home' ? (
@@ -129,7 +129,7 @@ export default function App() {
             {/* 2. Armada Mobil Tampil Berjejer */}
             <CarList onSelectCar={handleSelectCar} lang={lang} />
 
-            {/* 3. Section: Rute & Paket Perjalanan (1 Box Bingkai Rapih Simpel Berkelas) */}
+            {/* 3. Section: Rute & Paket Perjalanan (1 Box Frame) */}
             <ToursList lang={lang} />
 
             {/* 4. Section: Keunggulan Layanan */}
@@ -159,7 +159,7 @@ export default function App() {
       {/* Interactive Booking Popup */}
       <BookingModal car={selectedCar} onClose={() => setSelectedCar(null)} lang={lang} onCarChange={setSelectedCar} />
 
-      {/* Floating Action Buttons matching farhanatravel */}
+      {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
         {/* WhatsApp Fast Button */}
         <motion.button
@@ -181,7 +181,7 @@ export default function App() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               onClick={scrollToTop}
-              className="w-12 h-12 bg-[#0f172a] hover:bg-slate-800 text-white rounded-full shadow-xl flex items-center justify-center cursor-pointer transition-all border border-slate-700"
+              className="w-12 h-12 bg-[#0b192c] hover:bg-slate-800 text-white rounded-full shadow-xl flex items-center justify-center cursor-pointer transition-all border border-slate-700"
               title="Kembali ke Atas"
               id="floater-scroll-top"
             >

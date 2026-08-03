@@ -11,17 +11,17 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
   const t = TRANSLATIONS[lang];
 
   return (
-    <footer id="contact" className="bg-slate-900 text-white pt-20 pb-8 border-t border-slate-800 relative overflow-hidden">
+    <footer id="contact" className="bg-[#0b192c] text-white pt-20 pb-8 border-t border-slate-800 relative overflow-hidden">
       
-      {/* Absolute background accent line */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500" />
+      {/* Absolute background blue accent line */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-700" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Upper pre-footer callout section matching farhanatravel */}
+        {/* Upper pre-footer callout section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-slate-800 items-center">
           <div className="space-y-2 text-left">
-            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-orange-400">
+            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-blue-400">
               CICI RENTCAR ENDE
             </h3>
             <p className="font-sans text-sm text-slate-300">
@@ -33,7 +33,7 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
               href="https://api.whatsapp.com/send?phone=6281236024604&text=Halo%20Cici%20Rentcar%20Ende,%20saya%20ingin%20tanya%20jadwal%20dan%20pemesanan%20rental%20mobil."
               target="_blank"
               rel="noreferrer"
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-sans font-bold text-xs uppercase px-6 py-3.5 rounded-xl shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
+              className="bg-gradient-to-r from-blue-700 to-indigo-900 hover:from-blue-800 hover:to-indigo-950 text-white font-sans font-bold text-xs uppercase px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all flex items-center gap-2 cursor-pointer border border-blue-400/20"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               <span>WhatsApp CS: 081236024604</span>
@@ -44,13 +44,13 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
         {/* Core Footer grid columns */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pt-16 pb-12">
           
-          {/* Column 1: Brand & Office Address */}
+          {/* Column 1: Brand & Office Address - CLEAN LARGE LOGO WITHOUT SIDE TEXT */}
           <div className="md:col-span-5 space-y-6 text-left">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center">
               <img
                 src="/logo.png"
                 alt="Cici Rentcar Ende Logo"
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-14 sm:h-16 w-auto object-contain brightness-0 invert drop-shadow-md"
               />
             </div>
 
@@ -60,13 +60,13 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
 
             <div className="text-xs text-slate-300 font-sans space-y-2.5">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4.5 h-4.5 text-orange-400 shrink-0 mt-0.5" />
-                <span className="hover:text-orange-400 transition-colors">
+                <MapPin className="w-4.5 h-4.5 text-blue-400 shrink-0 mt-0.5" />
+                <span className="hover:text-blue-300 transition-colors">
                   {t.footer_office}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4.5 h-4.5 text-orange-400 shrink-0" />
+                <Phone className="w-4.5 h-4.5 text-blue-400 shrink-0" />
                 <span>WhatsApp / Telp: <strong>081236024604</strong></span>
               </div>
               <p className="pt-2 text-slate-500">©2026 Cici Rentcar Ende. {t.footer_rights}</p>
@@ -75,27 +75,27 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
 
           {/* Column 2: Navigation Links */}
           <div className="md:col-span-3 space-y-4 text-left">
-            <h4 className="font-display font-bold text-sm tracking-widest text-orange-400 uppercase border-l-2 border-orange-500 pl-2">
+            <h4 className="font-display font-bold text-sm tracking-widest text-blue-400 uppercase border-l-2 border-blue-500 pl-2">
               Navigasi Halaman
             </h4>
             <ul className="space-y-2.5 text-xs font-sans text-slate-400">
               <li>
-                <button onClick={() => onNavClick('home')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                <button onClick={() => onNavClick('home')} className="hover:text-blue-400 transition-colors cursor-pointer text-left w-full">
                   • Beranda Utama
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('cars')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                <button onClick={() => onNavClick('cars')} className="hover:text-blue-400 transition-colors cursor-pointer text-left w-full">
                   • Daftar Armada & Harga Harian
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('tours')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                <button onClick={() => onNavClick('tours')} className="hover:text-blue-400 transition-colors cursor-pointer text-left w-full">
                   • Rute & Trip Lintas Flores
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('about')} className="hover:text-orange-400 transition-colors cursor-pointer text-left w-full">
+                <button onClick={() => onNavClick('about')} className="hover:text-blue-400 transition-colors cursor-pointer text-left w-full">
                   • Keunggulan Cici Rentcar Ende
                 </button>
               </li>
@@ -104,16 +104,16 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
 
           {/* Column 3: Contact details & Interactive Google Map */}
           <div className="md:col-span-4 space-y-4 text-left">
-            <h4 className="font-display font-bold text-sm tracking-widest text-orange-400 uppercase border-l-2 border-orange-500 pl-2">
+            <h4 className="font-display font-bold text-sm tracking-widest text-blue-400 uppercase border-l-2 border-blue-500 pl-2">
               {t.footer_hubungi}
             </h4>
 
             <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700 space-y-3">
               <div className="flex items-center gap-3">
-                <Headset className="w-5 h-5 text-orange-400" />
+                <Headset className="w-5 h-5 text-blue-400" />
                 <div>
                   <span className="text-[10px] text-slate-400 font-bold uppercase block">Fast Response 24 Jam</span>
-                  <a href="https://api.whatsapp.com/send?phone=6281236024604" target="_blank" rel="noreferrer" className="font-display font-bold text-base text-orange-400 hover:underline">
+                  <a href="https://api.whatsapp.com/send?phone=6281236024604" target="_blank" rel="noreferrer" className="font-display font-bold text-base text-blue-400 hover:underline">
                     081236024604
                   </a>
                 </div>
@@ -137,7 +137,7 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                   href="https://maps.google.com/?q=Jl.+R.W.+Monginsidi,+Bhoanawa,+Kota+Ende,+Flores,+NTT"
                   target="_blank"
                   rel="noreferrer"
-                  className="absolute bottom-2.5 right-2.5 bg-orange-600 hover:bg-orange-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-1.5 transition-all border border-white/20"
+                  className="absolute bottom-2.5 right-2.5 bg-blue-700 hover:bg-blue-800 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-1.5 transition-all border border-white/20"
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   <span>Buka Google Maps</span>

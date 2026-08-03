@@ -11,40 +11,40 @@ export default function About({ lang }: AboutProps) {
 
   const keyStrengths = [
     {
-      icon: <ShieldCheck className="w-6 h-6 text-orange-600" />,
+      icon: <ShieldCheck className="w-6 h-6 text-blue-700" />,
       title: "Armada Selalu Prima & Terawat",
       description: "Kendaraan rutin menjalani inspeksi berkala, AC dingin, dan kabin senantiasa bersih steril."
     },
     {
-      icon: <UserCheck className="w-6 h-6 text-orange-600" />,
+      icon: <UserCheck className="w-6 h-6 text-blue-700" />,
       title: "Driver Lokal Berpengalaman",
       description: "Driver ramah, profesional, dan sangat paham rute wisata serta kondisi medan di seluruh Flores."
     },
     {
-      icon: <Clock className="w-6 h-6 text-orange-600" />,
+      icon: <Clock className="w-6 h-6 text-blue-700" />,
       title: "Tepat Waktu & Pelayanan Ramah",
       description: "Penjemputan di Bandara H. Hasan Aroeboesman Ende, hotel, atau lokasi pilihan secara tepat waktu 24/7."
     },
     {
-      icon: <Tag className="w-6 h-6 text-orange-600" />,
+      icon: <Tag className="w-6 h-6 text-blue-700" />,
       title: "Harga Transparan (Tanpa Biaya Tersembunyi)",
       description: "Tarif sewa jelas dan terjangkau mulai dari Rp 800.000 / hari sudah termasuk pengemudi berpengalaman."
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-white text-[#0f172a] overflow-hidden border-b border-slate-200">
+    <section id="about" className="py-20 bg-white text-[#0b192c] overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
-            <Sparkles className="w-4 h-4 text-orange-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
+            <Sparkles className="w-4 h-4 text-blue-700" />
             <span>MENGAPA MEMILIH KAMI?</span>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0f172a] tracking-tight uppercase leading-tight">
-            Keunggulan Layanan <span className="text-orange-600">Cici Rentcar Ende</span>
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0b192c] tracking-tight uppercase leading-tight">
+            Keunggulan Layanan <span className="text-blue-800">Cici Rentcar Ende</span>
           </h2>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
@@ -57,13 +57,13 @@ export default function About({ lang }: AboutProps) {
           {keyStrengths.map((item, idx) => (
             <div 
               key={idx} 
-              className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 hover:shadow-xl hover:border-orange-300 transition-all duration-300 text-left flex flex-col justify-between group"
+              className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 hover:shadow-xl hover:border-blue-300 transition-all duration-300 text-left flex flex-col justify-between group"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-orange-100/80 text-orange-600 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-blue-100/80 text-blue-800 flex items-center justify-center group-hover:bg-blue-800 group-hover:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
-                <h3 className="font-display font-bold text-lg text-[#0f172a] group-hover:text-orange-600 transition-colors">
+                <h3 className="font-display font-bold text-lg text-[#0b192c] group-hover:text-blue-800 transition-colors">
                   {item.title}
                 </h3>
                 <p className="font-sans text-xs text-slate-600 leading-relaxed font-medium">

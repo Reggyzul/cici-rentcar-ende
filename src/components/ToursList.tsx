@@ -66,18 +66,18 @@ export default function ToursList({ lang }: ToursListProps) {
   };
 
   return (
-    <section id="tours" className="py-20 bg-white text-[#0f172a] overflow-hidden border-b border-slate-200">
+    <section id="tours" className="py-20 bg-white text-[#0b192c] overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
-            <Sparkles className="w-4 h-4 text-orange-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 font-display font-extrabold text-xs tracking-wider uppercase shadow-sm">
+            <Sparkles className="w-4 h-4 text-blue-700" />
             <span>RUTE & PAKET PERJALANAN FLORES</span>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0f172a] tracking-tight uppercase leading-tight">
-            Jelajahi Pesona <span className="text-orange-600">Pulau Flores</span>
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0b192c] tracking-tight uppercase leading-tight">
+            Jelajahi Pesona <span className="text-blue-800">Pulau Flores</span>
           </h2>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
@@ -85,17 +85,17 @@ export default function ToursList({ lang }: ToursListProps) {
           </p>
         </div>
 
-        {/* SINGLE ELEGANT FRAME BOX (Matching farhanatravel style) */}
-        <div className="bg-[#0f172a] text-white rounded-[32px] p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
+        {/* SINGLE ELEGANT FRAME BOX (Blue & Dark Navy Theme) */}
+        <div className="bg-[#0b192c] text-white rounded-[32px] p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
           
           {/* Subtle Background Glow Accents */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Top Frame Header: Route Selection Tabs inside Frame */}
+          {/* Top Frame Header: Route Selection Tabs */}
           <div className="relative z-10 mb-8 border-b border-white/10 pb-6">
-            <p className="text-xs font-display font-bold tracking-wider text-orange-400 uppercase mb-4 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-orange-400" />
+            <p className="text-xs font-display font-bold tracking-wider text-blue-400 uppercase mb-4 flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-blue-400" />
               <span>PILIH RUTE PERJALANAN (KLIK UNTUK DETAIL):</span>
             </p>
             
@@ -109,13 +109,13 @@ export default function ToursList({ lang }: ToursListProps) {
                     onClick={() => setActiveRouteIndex(idx)}
                     className={`p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer border flex flex-col justify-between ${
                       isActive
-                        ? 'bg-gradient-to-r from-orange-500 to-orange-600 border-orange-400 text-white shadow-lg shadow-orange-500/30 scale-[1.02]'
+                        ? 'bg-gradient-to-r from-blue-700 to-indigo-800 border-blue-400 text-white shadow-lg shadow-blue-900/40 scale-[1.02]'
                         : 'bg-slate-800/80 hover:bg-slate-800 border-white/5 text-slate-300 hover:text-white'
                     }`}
                   >
                     <div>
                       <span className={`inline-block text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-full uppercase mb-2 ${
-                        isActive ? 'bg-white/20 text-white' : 'bg-orange-500/20 text-orange-400'
+                        isActive ? 'bg-white/20 text-white' : 'bg-blue-500/20 text-blue-300'
                       }`}>
                         {route.badge}
                       </span>
@@ -133,7 +133,7 @@ export default function ToursList({ lang }: ToursListProps) {
             </div>
           </div>
 
-          {/* Dynamic Details Box inside the Frame */}
+          {/* Dynamic Details Box inside Frame */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentRoute.id}
@@ -148,18 +148,18 @@ export default function ToursList({ lang }: ToursListProps) {
                 
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-orange-500/20 text-orange-400 font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
+                    <span className="bg-blue-500/20 text-blue-300 font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">
                       {currentRoute.badge}
                     </span>
                     <span className="text-slate-400 text-xs font-semibold flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-orange-400" />
+                      <Clock className="w-3.5 h-3.5 text-blue-400" />
                       {currentRoute.duration}
                     </span>
                   </div>
                   <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight uppercase">
                     {currentRoute.name}
                   </h3>
-                  <p className="text-orange-400 font-semibold text-xs sm:text-sm mt-1">
+                  <p className="text-blue-300 font-semibold text-xs sm:text-sm mt-1">
                     📍 {currentRoute.subtitle}
                   </p>
                 </div>
@@ -171,7 +171,7 @@ export default function ToursList({ lang }: ToursListProps) {
                 {/* Destinasi Chips */}
                 <div className="space-y-2">
                   <p className="font-display font-bold text-[10px] uppercase tracking-widest text-slate-400 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-orange-400" />
+                    <MapPin className="w-3.5 h-3.5 text-blue-400" />
                     Destinasi Unggulan Yang Dikunjungi:
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -211,7 +211,7 @@ export default function ToursList({ lang }: ToursListProps) {
 
                   <button
                     onClick={() => handleBookingClick(currentRoute.waMessage)}
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-display font-extrabold text-xs sm:text-sm py-4 px-6 rounded-xl shadow-lg shadow-orange-500/25 transition-all flex items-center justify-center gap-2.5 cursor-pointer group"
+                    className="w-full bg-gradient-to-r from-blue-700 to-indigo-900 hover:from-blue-800 hover:to-indigo-950 text-white font-display font-extrabold text-xs sm:text-sm py-4 px-6 rounded-xl shadow-lg shadow-blue-900/30 transition-all flex items-center justify-center gap-2.5 cursor-pointer group"
                     id={`booking-btn-${currentRoute.id}`}
                   >
                     <MessageCircle className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />

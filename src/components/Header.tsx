@@ -62,29 +62,23 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
         className={`w-full transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md py-2 border-b border-slate-200/80 shadow-md'
-            : 'bg-white py-3 border-b border-slate-200/80'
+            : 'bg-white py-2.5 border-b border-slate-200/80'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between h-16">
             
-            {/* 1. BRAND LOGO (FAR LEFT) */}
+            {/* 1. BRAND LOGO (FAR LEFT) - CLEAN, LARGER, NO SIDE TEXT */}
             <div 
               onClick={() => handleItemClick({ label: t.nav_home, id: 'home', type: 'page', pageId: 'home' })}
-              className="flex items-center gap-1 cursor-pointer group shrink-0"
+              className="flex items-center cursor-pointer group shrink-0 py-1"
               id="header-logo"
             >
-              <img
-                src="/logo.png"
-                alt="Cici Rentcar Ende Logo"
-                className="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform"
+              <img 
+                src="/logo.png" 
+                alt="Cici Rentcar Ende Logo" 
+                className="h-12 sm:h-14 md:h-16 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="flex flex-col">
-                <span className="font-display font-black text-lg sm:text-xl tracking-tight text-[#0f172a] leading-none group-hover:text-orange-600 transition-colors">
-                  CICI RENTCAR <span className="text-orange-600">ENDE</span>
-                </span>
-                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">FLORES - NTT</span>
-              </div>
             </div>
 
             {/* 2. DESKTOP NAV ITEMS */}
@@ -98,10 +92,10 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
                   <button
                     key={item.id}
                     onClick={() => handleItemClick(item)}
-                    className={`font-sans text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer relative px-4 py-1.5 rounded-full ${
+                    className={`font-sans text-xs font-extrabold uppercase tracking-wider transition-all duration-300 cursor-pointer relative px-4 py-2 rounded-full ${
                       isItemActive
-                        ? 'text-orange-600 bg-orange-50 border border-orange-200/80 shadow-xs'
-                        : 'text-[#0f172a] hover:text-orange-600 hover:bg-slate-100/80'
+                        ? 'text-blue-900 bg-blue-50 border border-blue-200 shadow-xs'
+                        : 'text-[#0b192c] hover:text-blue-800 hover:bg-slate-100/80'
                     }`}
                     id={`nav-link-${item.id}`}
                   >
@@ -111,13 +105,13 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
               })}
             </nav>
 
-            {/* 3. CTA BUTTON (FAR RIGHT) */}
+            {/* 3. CTA BUTTON (FAR RIGHT) - BLUE & WHITE PALETTE */}
             <div className="hidden lg:flex items-center shrink-0">
               <a
                 href="https://api.whatsapp.com/send?phone=6281236024604&text=Halo%20Cici%20Rentcar%20Ende,%20saya%20ingin%20tanya%20jadwal%20dan%20pemesanan%20rental%20mobil."
                 target="_blank"
                 rel="noreferrer"
-                className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 hover:from-orange-700 hover:to-amber-700 text-white font-sans font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md shadow-orange-500/25 transition-all duration-300 cursor-pointer flex items-center gap-1.5 border border-orange-400/30 hover:scale-105"
+                className="bg-gradient-to-r from-blue-700 via-indigo-800 to-blue-900 hover:from-blue-800 hover:to-indigo-950 text-white font-sans font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md shadow-blue-900/20 transition-all duration-300 cursor-pointer flex items-center gap-1.5 border border-blue-400/30 hover:scale-105"
               >
                 <span>PESAN WA (081236024604)</span>
               </a>
@@ -127,7 +121,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
             <div className="flex items-center gap-3 lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2.5 rounded-xl bg-slate-100 text-[#0f172a] hover:text-orange-600 focus:outline-none cursor-pointer border border-slate-200"
+                className="p-2.5 rounded-xl bg-slate-100 text-[#0b192c] hover:text-blue-700 focus:outline-none cursor-pointer border border-slate-200"
                 aria-label="Toggle menu"
                 id="hamburger-btn"
               >
@@ -154,7 +148,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
                 <button
                   key={item.id}
                   onClick={() => handleItemClick(item)}
-                  className="block w-full text-left font-display font-bold text-base text-[#0f172a] hover:text-orange-600 py-3 border-b border-slate-100 cursor-pointer"
+                  className="block w-full text-left font-display font-bold text-base text-[#0b192c] hover:text-blue-700 py-3 border-b border-slate-100 cursor-pointer"
                 >
                   {item.label}
                 </button>
@@ -165,7 +159,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
                   href="https://api.whatsapp.com/send?phone=6281236024604&text=Halo%20Cici%20Rentcar%20Ende,%20saya%20ingin%20tanya%20jadwal%20dan%20pemesanan%20rental%20mobil."
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full bg-orange-600 text-white font-sans font-bold text-sm uppercase py-3.5 rounded-xl shadow-md flex items-center justify-center cursor-pointer"
+                  className="w-full bg-blue-800 hover:bg-blue-900 text-white font-sans font-bold text-sm uppercase py-3.5 rounded-xl shadow-md flex items-center justify-center cursor-pointer"
                 >
                   Pesan via WhatsApp (081236024604)
                 </a>
