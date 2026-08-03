@@ -84,8 +84,8 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('services')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_services}
+                <button onClick={() => onNavClick('tours')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
+                  {lang === 'EN' ? 'Tours & Routes' : 'Rute & Trip'}
                 </button>
               </li>
               <li>

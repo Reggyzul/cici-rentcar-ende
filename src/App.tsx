@@ -7,7 +7,6 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
 import ToursList from './components/ToursList';
 import CarList from './components/CarList';
 import BookingSteps from './components/BookingSteps';
@@ -140,16 +139,13 @@ export default function App() {
             {/* 2. Section: Mengapa Memilih Kami? */}
             <About lang={lang} />
 
-            {/* 3. Section: Layanan Utama */}
-            <Services lang={lang} />
-
-            {/* 4. Section: Rute & Paket Perjalanan (1 Box Bingkai Rapih Simpel Berkelas) */}
+            {/* 3. Section: Rute & Paket Perjalanan (1 Box Bingkai Rapih Simpel Berkelas) */}
             <ToursList lang={lang} />
 
-            {/* 5. Section: Cara Pemesanan Mudah */}
+            {/* 4. Section: Cara Pemesanan Mudah */}
             <BookingSteps lang={lang} />
 
-            {/* 6. Testimonials */}
+            {/* 5. Testimonials */}
             <Testimonials lang={lang} />
           </>
         ) : (
