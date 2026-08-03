@@ -34,10 +34,10 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
 
   const navItems = [
     { label: t.nav_home, id: 'home', type: 'page', pageId: 'home' },
-    { label: lang === 'EN' ? 'Tours' : 'Paket Wisata', id: 'tours', type: 'page', pageId: 'tours' },
-    { label: lang === 'EN' ? 'Rentals' : 'Pilihan Mobil', id: 'rentals', type: 'page', pageId: 'rentals' },
+    { label: lang === 'EN' ? 'Tours & Routes' : 'Rute & Trip', id: 'tours', type: 'page', pageId: 'tours' },
+    { label: lang === 'EN' ? 'Fleet & Rates' : 'Daftar Armada', id: 'rentals', type: 'page', pageId: 'rentals' },
     { label: t.nav_about, id: 'about', type: 'section', sectionId: 'about' },
-    { label: lang === 'EN' ? 'Clients' : 'Ulasan', id: 'testimonials', type: 'section', sectionId: 'testimonials' },
+    { label: lang === 'EN' ? 'Reviews' : 'Ulasan', id: 'testimonials', type: 'section', sectionId: 'testimonials' },
     { label: t.nav_contact, id: 'contact', type: 'section', sectionId: 'contact' },
   ];
 
@@ -68,13 +68,13 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
           </div>
           <div className="flex items-center gap-4">
             <a 
-              href="https://api.whatsapp.com/send?phone=628813305066" 
+              href="https://api.whatsapp.com/send?phone=6281236024604" 
               target="_blank" 
               rel="noreferrer" 
               className="flex items-center gap-1.5 hover:text-luxury-gold transition-colors font-semibold"
             >
               <Phone className="w-3.5 h-3.5 text-luxury-gold shrink-0 animate-pulse" />
-              <span>08813305066</span>
+              <span>081236024604</span>
             </a>
             <div className="h-3 w-px bg-white/20 hidden sm:block" />
             <div className="flex items-center gap-1.5">
@@ -96,17 +96,23 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* Logo */}
+            {/* Brand Logo & Name */}
             <div 
               onClick={() => handleItemClick({ label: t.nav_home, id: 'home', type: 'page', pageId: 'home' })}
-              className="flex items-center cursor-pointer group"
+              className="flex items-center gap-3 cursor-pointer group"
               id="header-logo"
             >
-              <img
-                src="/logo.png"
-                alt="Yoga Transport"
-                className="h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-              />
+              <div className="w-12 h-12 rounded-2xl bg-[#2563eb] text-white flex items-center justify-center font-display font-black text-xl shadow-lg">
+                C
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="font-display font-black text-lg sm:text-xl text-gray-900 tracking-tight leading-none group-hover:text-[#2563eb] transition-colors">
+                  CICI RENTCAR
+                </span>
+                <span className="font-display font-bold text-xs tracking-widest text-luxury-gold uppercase mt-0.5">
+                  ENDE - FLORES
+                </span>
+              </div>
             </div>
 
             {/* Desktop Nav Items */}
@@ -140,7 +146,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
               })}
             </nav>
 
-            {/* Right Utilities (Language, solid Blue CTA, Hamburger) */}
+            {/* Right Utilities */}
             <div className="flex items-center gap-3">
               {/* Language Selector */}
               <div className="relative">
@@ -192,7 +198,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
                 onClick={onBookingClick}
                 className="bg-[#2563eb] hover:bg-blue-700 text-white font-display font-extrabold text-xs uppercase py-2.5 px-5 rounded-xl transition-all shadow-md cursor-pointer shrink-0 hidden md:block"
               >
-                {lang === 'EN' ? 'BOOKING NOW' : 'BOOKING SEKARANG'}
+                {lang === 'EN' ? 'BOOKING NOW' : 'PESAN MOBIL'}
               </button>
 
               {/* Mobile Hamburger Button */}
@@ -249,7 +255,7 @@ export default function Header({ activeSection, onNavClick, lang, setLang, curre
                   }}
                   className="w-full bg-[#2563eb] hover:bg-blue-700 text-white font-display font-extrabold text-xs uppercase py-3 rounded-xl transition-all shadow-md cursor-pointer text-center"
                 >
-                  {lang === 'EN' ? 'BOOKING NOW' : 'BOOKING SEKARANG'}
+                  {lang === 'EN' ? 'BOOKING NOW' : 'PESAN MOBIL SEKARANG'}
                 </button>
               </div>
             </div>

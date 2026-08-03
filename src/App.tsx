@@ -94,11 +94,11 @@ export default function App() {
 
   // WhatsApp template for fast-chat floater
   const handleFastWhatsApp = () => {
-    const waNumber = '628813305066';
+    const waNumber = '6281236024604';
     const text = encodeURIComponent(
       lang === 'EN' 
-        ? 'Hello Yoga Transport, I am interested in booking a service in Malang. Thank you!'
-        : 'Halo Yoga Transport, saya tertarik untuk memesan layanan perjalanan/rental di Malang. Terima kasih!'
+        ? 'Hello Cici Rentcar Ende, I am interested in booking a car rental service in Ende Flores. Thank you!'
+        : 'Halo Cici Rentcar Ende (081236024604), saya tertarik untuk memesan layanan rental mobil / Trip Lintas Flores. Terima kasih!'
     );
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${text}`, '_blank', 'noreferrer');
   };

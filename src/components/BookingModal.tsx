@@ -68,14 +68,14 @@ export default function BookingModal({ car, onClose, lang, onCarChange }: Bookin
     }
 
     // Compose professional WhatsApp template
-    const waNumber = '628813305066';
+    const waNumber = '6281236024604';
     const inclusionText = includeTolParkir 
-      ? (lang === 'EN' ? t.modal_allin_active : 'Ya (All-In Tol, Parkir, Makan Driver)')
+      ? (lang === 'EN' ? t.modal_allin_active : 'Ya (All-In BBM, Parkir, Makan Driver)')
       : (lang === 'EN' ? t.modal_allin_inactive : 'Tidak (Mobil + Driver saja)');
 
     let textTemplate = '';
     if (lang === 'EN') {
-      textTemplate = `Hello Yoga Transport, I would like to book the following vehicle:
+      textTemplate = `Hello Cici Rentcar Ende, I would like to book the following vehicle:
 
 *VEHICLE MODEL:*
 👉 *${car.name}*
@@ -92,14 +92,14 @@ export default function BookingModal({ car, onClose, lang, onCarChange }: Bookin
 📝 Special Notes: ${notes || '-'}
 
 *EXTRA SERVICES:*
-🅿️ All-In Package (Tolls, Parking, Driver Meal): ${inclusionText}
+🅿️ All-In Package (Fuel, Parking, Driver Meal): ${inclusionText}
 
 *ESTIMATED COST:*
 💰 Price: Contact for best quote
 
 Please confirm availability. Thank you!`;
     } else {
-      textTemplate = `Halo Yoga Transport, saya ingin memesan armada berikut:
+      textTemplate = `Halo Cici Rentcar Ende, saya ingin memesan armada berikut:
 
 *MODEL ARMADA:*
 👉 *${car.name}*
@@ -113,13 +113,13 @@ Please confirm availability. Thank you!`;
 👤 Nama: ${name}
 📞 No. WhatsApp: ${phone}
 📍 Alamat Jemput: ${pickupAddress}
-📝 Catatan Khusus: ${notes || '-'}
+📝 Catatan Khusus / Rute Tujuan: ${notes || '-'}
 
 *LAYANAN TAMBAHAN:*
-🅿️ Paket All-In (BBM, Tol, Parkir, Makan Driver): ${inclusionText}
+🅿️ Paket All-In (BBM, Parkir, Makan Driver): ${inclusionText}
 
 *ESTIMASI BIAYA:*
-💰 Tarif: Hubungi kontak kami untuk penawaran terbaik
+💰 Tarif: Hubungi 081236024604 untuk penawaran terbaik
 
 Mohon konfirmasi ketersediaan unit. Terima kasih!`;
     }

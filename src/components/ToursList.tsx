@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Clock, MapPin, MessageSquare } from 'lucide-react';
+import { Clock, MapPin } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { motion } from 'motion/react';
 
@@ -12,45 +12,45 @@ export default function ToursList({ lang }: ToursListProps) {
 
   const tourPackages = [
     {
-      id: 'tour-bromo',
-      title: lang === 'EN' ? '3D2N Malang Batu Bromo' : '3D2N Malang Batu Bromo',
-      duration: lang === 'EN' ? '3 Days 2 Nights' : '3 Hari 2 Malam (3D2N)',
-      location: 'Malang, Batu, Bromo',
-      price: 'Mulai Rp 4.600.000',
+      id: 'tour-[#lintas-flores]',
+      title: 'Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo)',
+      duration: lang === 'EN' ? 'Custom Days (4D3N / 5D4N / 6D5N)' : 'Pilihan Paket Flexi (4H3M / 5H4M / 6H5M)',
+      location: 'Pulau Flores (Ende ke Labuan Bajo)',
+      price: 'Hubungi CS (081236024604)',
       description: lang === 'EN' 
-        ? 'Best private family trip package covering Mount Bromo sunrise, Batu attractions, and Malang city highlights.'
-        : 'Paket trip keluarga terbaik meliputi sunrise Gunung Bromo, objek wisata Batu, dan ikon Kota Malang.',
-      image: '/tours_bromo.jpg',
-      waMessage: 'Halo Yoga Transport, saya tertarik memesan paket wisata 3D2N Malang Batu Bromo. Mohon info detailnya.'
-    },
-    {
-      id: 'tour-city',
-      title: lang === 'EN' ? 'City Tour Malang & Batu' : 'City Tour Malang & Batu',
-      duration: lang === 'EN' ? '1 Day Tour' : '1 Hari Penuh (1 Day)',
-      location: 'Malang & Batu',
-      price: 'Mulai Rp 1.500.000',
-      description: lang === 'EN'
-        ? 'Flexible private city tour guide around Batu city, theme parks (Jatim Park), and local Malang culinary spots.'
-        : 'Panduan wisata kota fleksibel keliling kota Batu, theme park (Jatim Park), dan wisata kuliner Malang.',
-      image: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&q=80&w=600',
-      waMessage: 'Halo Yoga Transport, saya tertarik memesan paket City Tour Malang & Batu. Mohon info ketersediaannya.'
-    },
-    {
-      id: 'tour-shuttle',
-      title: lang === 'EN' ? 'Shuttle & Drop Juanda Airport' : 'Shuttle & Drop Bandara Juanda',
-      duration: lang === 'EN' ? 'One Way' : 'Sekali Jalan',
-      location: 'Surabaya / Malang',
-      price: 'Mulai Rp 750.000',
-      description: lang === 'EN'
-        ? 'Punctual private pickup or drop off shuttle service from Malang to Surabaya Juanda Airport.'
-        : 'Layanan antar-jemput privat tepat waktu dari Malang ke Bandara Juanda Surabaya atau sebaliknya.',
+        ? 'Unforgettable overland journey exploring key destinations across Flores Island: Ende, Kelimutu, Maumere, Bajawa, Ruteng, to Labuan Bajo.'
+        : 'Perjalanan spesial menjelajahi Pulau Flores dari Ende, Kelimutu, Maumere, Bajawa, Ruteng hingga titik akhir di Labuan Bajo secara aman dan nyaman.',
       image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=600',
-      waMessage: 'Halo Yoga Transport, saya ingin memesan layanan Drop Bandara Juanda. Mohon konfirmasi tarifnya.'
+      waMessage: 'Halo Cici Rentcar Ende, saya tertarik untuk memesan paket Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo). Mohon info rincian harganya.'
+    },
+    {
+      id: 'tour-kelimutu-ende',
+      title: lang === 'EN' ? 'Ende & Kelimutu Day Tour' : 'Tour Wisata Kelimutu & Ende',
+      duration: lang === 'EN' ? '1 Day Tour' : '1 Hari Penuh (1 Day)',
+      location: 'Ende & Moni (Danau Kelimutu)',
+      price: 'Hubungi CS (081236024604)',
+      description: lang === 'EN'
+        ? 'Explore sunrise at Kelimutu 3-Color Lake, Bung Karno Exile House, and Ende local cultural spots.'
+        : 'Saksikan keindahan sunrise Danau 3 Warna Kelimutu, kunjungi Situs Rumah Pengasingan Bung Karno, dan Pantai Batu Hijau.',
+      image: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&q=80&w=600',
+      waMessage: 'Halo Cici Rentcar Ende, saya ingin memesan paket Tour Wisata Kelimutu & Ende. Mohon info ketersediaannya.'
+    },
+    {
+      id: 'tour-shuttle-ende',
+      title: lang === 'EN' ? 'Ende Airport & Hotel Transfer' : 'Shuttle & Antar-Jemput Bandara Ende',
+      duration: lang === 'EN' ? 'One Way / Drop' : 'Sekali Jalan / Layanan Drop',
+      location: 'Bandara H. Hasan Aroeboesman Ende',
+      price: 'Hubungi CS (081236024604)',
+      description: lang === 'EN'
+        ? 'Punctual private pickup or drop-off shuttle service from H. Hasan Aroeboesman Airport to hotels or cities in Flores.'
+        : 'Layanan antar-jemput privat tepat waktu dari/ke Bandara H. Hasan Aroeboesman Ende menuju hotel atau kota-kota di Flores.',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d7c26b?auto=format&fit=crop&q=80&w=600',
+      waMessage: 'Halo Cici Rentcar Ende, saya ingin memesan layanan Shuttle / Drop Bandara Ende. Mohon konfirmasi tarifnya.'
     }
   ];
 
   const handleWhatsApp = (msg: string) => {
-    const waNumber = '628813305066';
+    const waNumber = '6281236024604';
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(msg)}`, '_blank', 'noreferrer');
   };
 
@@ -61,15 +61,15 @@ export default function ToursList({ lang }: ToursListProps) {
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="font-display font-bold text-sm text-luxury-gold tracking-widest uppercase">
-            OUR PACKAGES
+            RUTE & PAKET PERJALANAN
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-gray-900 tracking-tight uppercase">
-            Popular Tour Packages
+            Trip Lintas Flores & Destinasi Favorit
           </h2>
           <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
             {lang === 'EN' 
-              ? 'Choose our curated premium tour and travel packages for your holiday in East Java.'
-              : 'Pilih berbagai paket wisata premium pilihan kami untuk liburan terbaik Anda di Jawa Timur.'}
+              ? 'Choose our curated premium overland trip across Flores Island with experienced local driver.'
+              : 'Nikmati perjalanan Trip Lintas Flores (Ende - Maumere - Bajawa - Ruteng - Labuan Bajo) bersama driver profesional Cici Rentcar Ende.'}
           </p>
         </div>
 
@@ -111,7 +111,7 @@ export default function ToursList({ lang }: ToursListProps) {
                 </div>
 
                 {/* Info Spec Row */}
-                <div className="flex gap-4 text-gray-500 text-xs py-2 border-t border-b border-gray-50">
+                <div className="flex flex-wrap gap-4 text-gray-500 text-xs py-2 border-t border-b border-gray-50">
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4 text-gray-400" />
                     <span>{pkg.duration}</span>
@@ -128,14 +128,14 @@ export default function ToursList({ lang }: ToursListProps) {
                     onClick={() => handleWhatsApp(pkg.waMessage)}
                     className="flex-grow bg-[#2563eb] hover:bg-blue-700 text-white font-display font-bold text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md transition-all cursor-pointer text-center"
                   >
-                    {lang === 'EN' ? 'View Details' : 'Pesan Paket'}
+                    {lang === 'EN' ? 'Book Package' : 'Pesan Paket Rute'}
                   </button>
                   
-                  {/* WhatsApp Direct Green button next to it */}
+                  {/* WhatsApp Direct Green button */}
                   <button
                     onClick={() => handleWhatsApp(pkg.waMessage)}
                     className="bg-[#25D366] hover:bg-[#20ba5a] text-white p-3 rounded-xl transition-all flex items-center justify-center cursor-pointer shadow-sm shrink-0"
-                    title="Pesan via WhatsApp"
+                    title="Pesan via WhatsApp (081236024604)"
                   >
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>

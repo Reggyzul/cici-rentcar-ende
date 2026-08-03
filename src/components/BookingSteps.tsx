@@ -1,7 +1,7 @@
 import React from 'react';
-import { Smartphone, MessageSquareText, ShieldAlert, Sparkles, Map } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { motion } from 'motion/react';
+import { PhoneCall } from 'lucide-react';
 
 interface BookingStepsProps {
   lang: 'ID' | 'EN';
@@ -27,6 +27,16 @@ export default function BookingSteps({ lang }: BookingStepsProps) {
       description: t.step_3_desc,
     },
   ];
+
+  const handleWhatsAppContact = () => {
+    const waNumber = '6281236024604';
+    const text = encodeURIComponent(
+      lang === 'EN'
+        ? 'Hello Cici Rentcar Ende, I would like to consult about car rental in Ende Flores.'
+        : 'Halo CS Cici Rentcar Ende (081236024604), saya ingin berkonsultasi mengenai pemesanan rental mobil.'
+    );
+    window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${text}`, '_blank', 'noreferrer');
+  };
 
   return (
     <section id="steps" className="py-24 bg-gray-50 overflow-hidden border-t border-b border-gray-100">
@@ -71,6 +81,17 @@ export default function BookingSteps({ lang }: BookingStepsProps) {
                 <p className="font-sans text-xs sm:text-sm text-gray-500 leading-relaxed max-w-xs">
                   {stepItem.description}
                 </p>
+
+                {/* Direct CS action for step 2 */}
+                {index === 1 && (
+                  <button
+                    onClick={handleWhatsAppContact}
+                    className="mt-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 shadow-sm transition-all"
+                  >
+                    <PhoneCall className="w-3.5 h-3.5" />
+                    <span>WhatsApp 081236024604</span>
+                  </button>
+                )}
 
                 {/* Corner light shine decorative */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-luxury-gold/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />

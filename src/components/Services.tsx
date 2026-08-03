@@ -42,20 +42,20 @@ export default function Services({ lang }: ServicesProps) {
       const el = document.getElementById('cars');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      const waNumber = '628813305066';
+      const waNumber = '6281236024604';
       let message = '';
       if (serviceId === 'tour') {
         message = lang === 'EN'
-          ? 'Hello Yoga Transport, I would like to inquire about the Malang & Batu City Tour service.'
-          : 'Halo Yoga Transport, saya ingin bertanya dan memesan layanan City Tour Malang & Batu.';
+          ? 'Hello Cici Rentcar Ende, I would like to inquire about the Overland Flores Trip service.'
+          : 'Halo Cici Rentcar Ende, saya ingin berkonsultasi mengenai pemesanan layanan Trip Lintas Flores (Ende - Labuan Bajo).';
       } else if (serviceId === 'bromo') {
         message = lang === 'EN'
-          ? 'Hello Yoga Transport, I am interested in booking the Malang & Bromo Tour Package.'
-          : 'Halo Yoga Transport, saya ingin memesan Paket Wisata Malang & Bromo.';
+          ? 'Hello Cici Rentcar Ende, I am interested in booking the Kelimutu & Ende Tour.'
+          : 'Halo Cici Rentcar Ende, saya ingin memesan Tour Wisata Kelimutu & Ende.';
       } else if (serviceId === 'shuttle') {
         message = lang === 'EN'
-          ? 'Hello Yoga Transport, I would like to book the Airport Shuttle & Drop-off service.'
-          : 'Halo Yoga Transport, saya ingin memesan layanan Shuttle & Drop Bandara.';
+          ? 'Hello Cici Rentcar Ende, I would like to book the Ende Airport Shuttle service.'
+          : 'Halo Cici Rentcar Ende, saya ingin memesan layanan Shuttle & Drop Bandara Ende.';
       }
       window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
     }
@@ -101,12 +101,12 @@ export default function Services({ lang }: ServicesProps) {
                 {service.description}
               </p>
               
-              {/* WhatsApp Booking CTA for non-rental services */}
+              {/* WhatsApp Booking CTA */}
               <button
                 onClick={() => handleServiceBook(service.id)}
                 className="mt-6 w-full py-2.5 px-4 bg-transparent border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white rounded-xl text-xs font-display font-bold shadow-sm shadow-luxury-gold/5 transition-all cursor-pointer flex items-center justify-center gap-1.5"
               >
-                <span>{service.id === 'rental' ? (lang === 'EN' ? 'View Fleet' : 'Lihat Pilihan Mobil') : (lang === 'EN' ? 'Book via WhatsApp' : 'Hubungi via WhatsApp')}</span>
+                <span>{service.id === 'rental' ? (lang === 'EN' ? 'View Fleet' : 'Lihat Daftar Harga') : (lang === 'EN' ? 'Book via WhatsApp' : 'Hubungi via WhatsApp')}</span>
               </button>
             </motion.div>
           ))}

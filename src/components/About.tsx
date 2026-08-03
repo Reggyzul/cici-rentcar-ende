@@ -23,14 +23,14 @@ export default function About({ lang }: AboutProps) {
       description: t.strength_driver_desc
     },
     {
-      icon: <Tag className="w-5 h-5 text-luxury-gold" />,
-      title: t.strength_price_title,
-      description: t.strength_price_desc
-    },
-    {
       icon: <Clock className="w-5 h-5 text-luxury-gold" />,
       title: t.strength_time_title,
       description: t.strength_time_desc
+    },
+    {
+      icon: <Tag className="w-5 h-5 text-luxury-gold" />,
+      title: t.strength_price_title,
+      description: t.strength_price_desc
     }
   ];
 
@@ -50,17 +50,17 @@ export default function About({ lang }: AboutProps) {
                 </p>
                 <div className="flex flex-col items-end">
                   <span className="font-display font-bold text-xs tracking-tight text-luxury-gold">
-                    YOGA TRANSPORT
+                    CICI RENTCAR ENDE
                   </span>
-                  <span className="text-[7px] text-gray-400 tracking-wider">MALANG - EAST JAVA</span>
+                  <span className="text-[7px] text-gray-400 tracking-wider">ENDE - FLORES - NTT</span>
                 </div>
               </div>
 
               {/* Central Premium vehicle image inside frame */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg mb-6 border border-white/5 bg-black/20">
                 <img
-                  src="/elf_long.png"
-                  alt="Isuzu Elf Long Yoga Transport Malang"
+                  src="/innova3.avif"
+                  alt="Toyota Innova Reborn Cici Rentcar Ende"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
@@ -78,12 +78,12 @@ export default function About({ lang }: AboutProps) {
                     {lang === 'EN' ? (
                       <>
                         BEST TRAVEL <br />
-                        <span className="text-luxury-gold">EXPERIENCE</span> IN JAVA
+                        <span className="text-luxury-gold">EXPERIENCE</span> IN FLORES
                       </>
                     ) : (
                       <>
-                        PENGALAMAN TRAVEL <br />
-                        TERBAIK DI <span className="text-luxury-gold">JAWA TIMUR</span>
+                        PENGALAMAN RENTAL <br />
+                        TERBAIK DI <span className="text-luxury-gold">PULAU FLORES</span>
                       </>
                     )}
                   </h4>
@@ -94,8 +94,8 @@ export default function About({ lang }: AboutProps) {
                 </div>
                 <p className="text-[11px] text-gray-400 leading-relaxed font-sans">
                   {lang === 'EN' 
-                    ? 'Enjoy the beauty of Malang Batu Bromo without driving stress. Leave your journey to the local experts!' 
-                    : 'Nikmati indahnya alam Malang, Batu, dan Bromo tanpa lelah menyetir. Serahkan perjalanan Anda kepada tim ahli kami!'}
+                    ? 'Enjoy the breathtaking beauty of Flores without driving fatigue. Trust your journey to local experts!' 
+                    : 'Nikmati keindahan eksotis Pulau Flores tanpa lelah menyetir. Serahkan perjalanan Anda kepada tim ahli lokal kami!'}
                 </p>
               </div>
 
@@ -127,27 +127,16 @@ export default function About({ lang }: AboutProps) {
               </p>
             </div>
 
-            {/* Read More Accordion showing strengths details */}
-            <AnimatePresence>
-              {showFullStory && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="space-y-4 pt-4 border-t border-gray-100"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                    {keyStrengths.map((strength, idx) => (
-                      <div key={idx} className="bg-amber-50/20 p-4 rounded-2xl border border-amber-100/30">
-                        <div className="mb-2">{strength.icon}</div>
-                        <h4 className="font-display font-bold text-sm text-gray-900 mb-1">{strength.title}</h4>
-                        <p className="font-sans text-xs text-gray-500 leading-relaxed">{strength.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Strengths Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+              {keyStrengths.map((strength, idx) => (
+                <div key={idx} className="bg-amber-50/30 p-4 rounded-2xl border border-amber-100/50 hover:border-luxury-gold/30 transition-all">
+                  <div className="mb-2">{strength.icon}</div>
+                  <h4 className="font-display font-bold text-sm text-gray-900 mb-1">{strength.title}</h4>
+                  <p className="font-sans text-xs text-gray-500 leading-relaxed">{strength.description}</p>
+                </div>
+              ))}
+            </div>
 
             {/* Buttons Row */}
             <div className="flex items-center gap-4 pt-4">

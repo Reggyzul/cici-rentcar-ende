@@ -21,8 +21,8 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
         {/* Upper pre-footer callout section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-white/10 items-center">
           <div className="space-y-2 text-left">
-            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-luxury-gold animate-pulse">
-              YOGA TRANSPORT MALANG
+            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-luxury-gold">
+              CICI RENTCAR ENDE
             </h3>
             <p className="font-sans text-sm text-gray-300">
               {t.footer_pre_desc}
@@ -30,7 +30,7 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
           </div>
           <div className="flex justify-start md:justify-end">
             <div className="font-display font-black text-2xl text-white/40 tracking-wider">
-              EST. 2026
+              FLORES - NTT
             </div>
           </div>
         </div>
@@ -41,11 +41,17 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
           {/* Column 1: Brand & Office Address */}
           <div className="md:col-span-5 space-y-6 text-left">
             <div className="flex items-center gap-3">
-              <img
-                src="/logo.png"
-                alt="Yoga Transport Logo"
-                className="h-18 w-auto object-contain"
-              />
+              <div className="w-10 h-10 rounded-xl bg-[#2563eb] text-white flex items-center justify-center font-display font-black text-lg shadow-md">
+                C
+              </div>
+              <div className="flex flex-col">
+                <span className="font-display font-black text-lg text-white tracking-tight leading-none">
+                  CICI RENTCAR
+                </span>
+                <span className="font-display font-bold text-[10px] tracking-widest text-luxury-gold uppercase mt-0.5">
+                  ENDE, FLORES - NTT
+                </span>
+              </div>
             </div>
 
             <p className="font-sans text-xs text-gray-400 leading-relaxed max-w-sm">
@@ -57,14 +63,14 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 <MapPin className="w-4.5 h-4.5 text-luxury-gold shrink-0 mt-0.5" />
                 <span>{t.footer_office}</span>
               </div>
-              <p>©2026 Yoga Transport Malang. {t.footer_rights}</p>
+              <p>©2026 Cici Rentcar Ende. {t.footer_rights}</p>
             </div>
           </div>
 
           {/* Column 2: Navigation Links */}
           <div className="md:col-span-3 space-y-4 text-left">
             <h4 className="font-display font-bold text-sm tracking-widest text-luxury-gold uppercase border-l-2 border-luxury-gold pl-2">
-              Menu
+              Menu Navigasi
             </h4>
             <ul className="space-y-2.5 text-xs font-sans text-gray-400">
               <li>
@@ -110,12 +116,12 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 <div>
                   <p className="text-[10px] uppercase font-bold text-gray-500">WhatsApp Fast Response</p>
                   <a 
-                    href="https://api.whatsapp.com/send?phone=628813305066"
+                    href="https://api.whatsapp.com/send?phone=6281236024604"
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-display font-bold text-white hover:text-luxury-gold mt-0.5 block"
                   >
-                    08813305066
+                    081236024604
                   </a>
                 </div>
               </div>
@@ -126,26 +132,26 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase font-bold text-gray-500">Direct Call</p>
-                  <a href="tel:+628813305066" className="font-semibold text-white mt-0.5 block hover:text-luxury-gold">
-                    08813305066
+                  <p className="text-[10px] uppercase font-bold text-gray-500">Direct Call / Telepon</p>
+                  <a href="tel:+6281236024604" className="font-semibold text-white mt-0.5 block hover:text-luxury-gold">
+                    081236024604
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Google Map Embed */}
+            {/* Google Map Embed for Ende, Flores */}
             <div className="pt-2">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg w-full h-36 bg-white/5">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3533816434454!2d112.64539121477793!3d-7.962382994265147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62854378f44ff%3A0xe54e60938bf8c60f!2sJl.%20Rawa%2C%20Bunulrejo%2C%20Kec.%20Blimbing%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065123!5e0!3m2!1sid!2sid!4v1689999999999!5m2!1sid!2sid"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.526233512398!2d121.65083331478201!3d-8.846505993648057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c3558bc671912a7%3A0xb35bc7a3f019f6a5!2sJl.%20R.%20W.%20Monginsidi%2C%20Bhoanawa%2C%20Kec.%20Ende%20Sel.%2C%20Kabupaten%20Ende%2C%20Nusa%20Tenggara%20Tim.!5e0!3m2!1sid!2sid!4v1689999999999!5m2!1sid!2sid"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen={true}
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Yoga Transport Malang Location Map"
+                  title="Cici Rentcar Ende Location Map"
                 ></iframe>
               </div>
             </div>
